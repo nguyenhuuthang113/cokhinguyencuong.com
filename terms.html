@@ -255,6 +255,11 @@
           >
           <a
             class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1"
+            href="khach-hang.html"
+            >Khách hàng</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1"
             href="contact.html"
             >Liên hệ</a
           >
@@ -332,6 +337,11 @@
               document.getElementById('mobile-menu').classList.add('hidden')
             "
             >Giới thiệu</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors pl-3 py-2"
+            href="khach-hang.html"
+            >Khách hàng</a
           >
           <a
             class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors pl-3 py-2"
@@ -1057,6 +1067,41 @@
     </footer>
 
     <script>
+      // Theme Management - Load saved theme on page load
+      (function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+          document.documentElement.classList.remove("light");
+        } else if (theme === "light") {
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
+        } else {
+          // Nếu chưa có preference, mặc định là light
+          document.documentElement.classList.add("light");
+          document.documentElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        }
+      })();
+
+      // Dark mode toggle with persistence across pages
+      const darkModeToggle = document.querySelector('button[onclick*="dark"]');
+      if (darkModeToggle) {
+        darkModeToggle.removeAttribute("onclick");
+        darkModeToggle.addEventListener("click", function () {
+          const html = document.documentElement;
+          if (html.classList.contains("dark")) {
+            html.classList.remove("dark");
+            html.classList.add("light");
+            localStorage.setItem("theme", "light");
+          } else {
+            html.classList.remove("light");
+            html.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+          }
+        });
+      }
+
       // Mobile Menu Toggle
       const mobileMenuButton = document.getElementById("mobile-menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
