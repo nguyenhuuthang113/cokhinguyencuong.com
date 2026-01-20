@@ -1,0 +1,1403 @@
+<!doctype html>
+
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Chính Sách Bảo Mật - Cơ Khí Nguyễn Cường</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1152d4",
+              "accent-orange": "#f97316",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+
+      /* Animation Classes */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+      }
+
+      .animate-on-scroll.animated {
+        animation-duration: 0.8s;
+        animation-fill-mode: both;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .fade-in-up.animated {
+        animation-name: fadeInUp;
+      }
+
+      /* Dropdown Menu */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 200px;
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 50;
+      }
+
+      .dark .dropdown-menu {
+        background: #1e293b;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-menu a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        color: #111318;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.2s;
+      }
+
+      .dark .dropdown-menu a {
+        color: #e2e8f0;
+      }
+
+      .dropdown-menu a:hover {
+        background: #f1f5f9;
+        color: #1152d4;
+      }
+
+      .dark .dropdown-menu a:hover {
+        background: #334155;
+        color: #60a5fa;
+      }
+
+      .dropdown-menu a:first-child {
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+      }
+
+      .dropdown-menu a:last-child {
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-[#111318] dark:text-white transition-colors duration-300"
+  >
+    <!-- Header / Navigation -->
+    <header
+      class="sticky top-0 z-50 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-[#f0f2f4] dark:border-slate-800"
+    >
+      <div
+        class="max-w-[1280px] mx-auto px-4 lg:px-10 h-20 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-3">
+          <div class="flex items-center justify-center">
+            <img
+              src="assets/images/logo/logo3D_rmbg.png"
+              alt="Nguyễn Cường Logo"
+              class="h-16 w-auto"
+            />
+          </div>
+          <div class="flex flex-col">
+            <h1
+              class="text-primary text-lg font-black leading-none tracking-tight uppercase"
+            >
+              Nguyễn Cường
+            </h1>
+            <span
+              class="text-[10px] font-bold text-[#616f89] dark:text-slate-400 tracking-widest uppercase"
+              >Cơ Khí Xây Dựng</span
+            >
+          </div>
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1"
+            href="index.html"
+            >Trang chủ</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1"
+            href="index.html#san-pham"
+            >Sản phẩm</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1"
+            href="index.html#gioi-thieu"
+            >Giới thiệu</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1"
+            href="contact.html"
+            >Liên hệ</a
+          >
+          <div class="dropdown">
+            <button
+              class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1 flex items-center gap-1"
+            >
+              <span>Chính sách</span>
+              <span class="material-symbols-outlined text-base"
+                >expand_more</span
+              >
+            </button>
+            <div class="dropdown-menu">
+              <a href="terms.html">
+                <span class="material-symbols-outlined text-lg"
+                  >description</span
+                >
+                <span>Điều khoản sử dụng</span>
+              </a>
+              <a
+                href="privacy.html"
+                class="font-bold text-primary dark:text-blue-400"
+              >
+                <span class="material-symbols-outlined text-lg">shield</span>
+                <span>Chính sách bảo mật</span>
+              </a>
+            </div>
+          </div>
+        </nav>
+        <div class="flex items-center gap-4">
+          <a
+            href="tel:+84359216666"
+            class="hidden lg:flex items-center gap-2 bg-accent-orange text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow-lg shadow-orange-500/20 hover:scale-105 transition-transform"
+          >
+            <span class="material-symbols-outlined text-lg">call</span>
+            <span>035.921.6666</span>
+          </a>
+          <button
+            class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-600 dark:text-slate-300"
+            onclick="document.documentElement.classList.toggle('dark')"
+          >
+            <span class="material-symbols-outlined">dark_mode</span>
+          </button>
+          <button
+            id="mobile-menu-button"
+            class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-600 dark:text-slate-300"
+          >
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800"
+      >
+        <nav class="max-w-[1280px] mx-auto px-4 py-4 flex flex-col gap-4">
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors pl-3 py-2"
+            href="index.html"
+            >Trang chủ</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors pl-3 py-2"
+            href="index.html#san-pham"
+            onclick="
+              document.getElementById('mobile-menu').classList.add('hidden')
+            "
+            >Sản phẩm</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors pl-3 py-2"
+            href="index.html#gioi-thieu"
+            onclick="
+              document.getElementById('mobile-menu').classList.add('hidden')
+            "
+            >Giới thiệu</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors pl-3 py-2"
+            href="contact.html"
+            >Liên hệ</a
+          >
+          <div class="pl-3">
+            <button
+              id="mobile-policy-toggle"
+              class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-2 flex items-center gap-2 w-full"
+            >
+              <span>Chính sách</span>
+              <span class="material-symbols-outlined text-base"
+                >expand_more</span
+              >
+            </button>
+            <div id="mobile-policy-menu" class="hidden ml-4 mt-2 space-y-2">
+              <a
+                href="terms.html"
+                class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors py-2"
+              >
+                <span class="material-symbols-outlined text-lg"
+                  >description</span
+                >
+                <span>Điều khoản sử dụng</span>
+              </a>
+              <a
+                href="privacy.html"
+                class="flex items-center gap-2 text-sm font-bold text-primary py-2"
+              >
+                <span class="material-symbols-outlined text-lg">shield</span>
+                <span>Chính sách bảo mật</span>
+              </a>
+            </div>
+          </div>
+          <a
+            href="tel:+84359216666"
+            class="flex items-center gap-2 bg-accent-orange text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow-lg shadow-orange-500/20 w-full justify-center"
+          >
+            <span class="material-symbols-outlined text-lg">call</span>
+            <span>035.921.6666</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-[1280px] mx-auto">
+      <!-- Hero Section -->
+      <section class="p-4 lg:p-10">
+        <div
+          class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary via-blue-600 to-blue-800 min-h-[320px] flex items-center"
+        >
+          <div class="absolute inset-0 opacity-10">
+            <div
+              class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"
+            ></div>
+            <div
+              class="absolute bottom-0 left-0 w-96 h-96 bg-accent-orange rounded-full blur-3xl"
+            ></div>
+          </div>
+          <div
+            class="relative z-10 px-6 lg:px-16 max-w-4xl flex flex-col gap-4"
+          >
+            <div class="flex items-center gap-2 text-white/80">
+              <span class="material-symbols-outlined text-lg">shield</span>
+              <span class="text-sm font-semibold">Bảo mật & An toàn</span>
+            </div>
+            <h1
+              class="text-white text-4xl lg:text-5xl font-black leading-tight tracking-tight animate-on-scroll fade-in-up"
+            >
+              Chính Sách Bảo Mật
+            </h1>
+            <p
+              class="text-blue-100 text-lg leading-relaxed animate-on-scroll fade-in-up"
+              style="animation-delay: 0.1s"
+            >
+              Cam kết bảo vệ thông tin cá nhân và dữ liệu của khách hàng
+            </p>
+            <div
+              class="flex items-center gap-2 text-sm text-white/70 animate-on-scroll fade-in-up"
+              style="animation-delay: 0.2s"
+            >
+              <span class="material-symbols-outlined text-base">update</span>
+              <span>Cập nhật lần cuối: 20/01/2026</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Privacy Content -->
+      <section class="px-4 lg:px-10 pb-16">
+        <div class="max-w-4xl mx-auto">
+          <!-- Introduction -->
+          <div
+            class="bg-white dark:bg-slate-800 rounded-2xl p-8 lg:p-10 mb-8 border border-slate-200 dark:border-slate-700 shadow-sm animate-on-scroll fade-in-up"
+          >
+            <div class="flex items-start gap-4 mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0"
+              >
+                <span class="material-symbols-outlined text-primary text-2xl"
+                  >info</span
+                >
+              </div>
+              <div>
+                <h2 class="text-2xl font-black mb-3 dark:text-white">
+                  Giới thiệu
+                </h2>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  CÔNG TY TNHH CƠ KHÍ XÂY DỰNG NGUYỄN CƯỜNG cam kết bảo vệ quyền
+                  riêng tư và thông tin cá nhân của khách hàng. Chính sách bảo
+                  mật này giải thích cách chúng tôi thu thập, sử dụng, lưu trữ
+                  và bảo vệ thông tin của bạn khi sử dụng dịch vụ của chúng tôi.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 1: Information Collection -->
+          <div
+            class="bg-white dark:bg-slate-800 rounded-2xl p-8 lg:p-10 mb-8 border border-slate-200 dark:border-slate-700 shadow-sm animate-on-scroll fade-in-up"
+            style="animation-delay: 0.1s"
+          >
+            <div class="flex items-start gap-4 mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-accent-orange/10 flex items-center justify-center flex-shrink-0"
+              >
+                <span
+                  class="material-symbols-outlined text-accent-orange text-2xl"
+                  >database</span
+                >
+              </div>
+              <div class="flex-1">
+                <h2 class="text-2xl font-black mb-4 dark:text-white">
+                  1. Thu thập thông tin
+                </h2>
+                <div class="space-y-4">
+                  <div>
+                    <h3
+                      class="text-lg font-bold mb-2 text-primary dark:text-blue-400"
+                    >
+                      1.1. Thông tin cá nhân
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-300 mb-3">
+                      Chúng tôi có thể thu thập các thông tin sau:
+                    </p>
+                    <ul
+                      class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300 ml-4"
+                    >
+                      <li>
+                        Họ tên, số điện thoại, địa chỉ email khi bạn liên hệ
+                        hoặc đặt hàng
+                      </li>
+                      <li>
+                        Địa chỉ giao hàng, thông tin thanh toán cho các giao
+                        dịch mua bán
+                      </li>
+                      <li>
+                        Thông tin doanh nghiệp (tên công ty, mã số thuế) nếu bạn
+                        là khách hàng doanh nghiệp
+                      </li>
+                      <li>
+                        Nội dung trao đổi qua email, điện thoại, hoặc biểu mẫu
+                        liên hệ
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3
+                      class="text-lg font-bold mb-2 text-primary dark:text-blue-400"
+                    >
+                      1.2. Thông tin kỹ thuật
+                    </h3>
+                    <ul
+                      class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300 ml-4"
+                    >
+                      <li>
+                        Địa chỉ IP, loại trình duyệt, hệ điều hành khi truy cập
+                        website
+                      </li>
+                      <li>
+                        Dữ liệu cookie để cải thiện trải nghiệm người dùng
+                      </li>
+                      <li>
+                        Thông tin về thiết bị và cách bạn tương tác với website
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Information Use -->
+          <div
+            class="bg-white dark:bg-slate-800 rounded-2xl p-8 lg:p-10 mb-8 border border-slate-200 dark:border-slate-700 shadow-sm animate-on-scroll fade-in-up"
+            style="animation-delay: 0.2s"
+          >
+            <div class="flex items-start gap-4 mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0"
+              >
+                <span class="material-symbols-outlined text-primary text-2xl"
+                  >settings_suggest</span
+                >
+              </div>
+              <div class="flex-1">
+                <h2 class="text-2xl font-black mb-4 dark:text-white">
+                  2. Mục đích sử dụng thông tin
+                </h2>
+                <div class="space-y-3 text-slate-600 dark:text-slate-300">
+                  <div class="flex gap-3">
+                    <span
+                      class="material-symbols-outlined text-accent-orange text-xl flex-shrink-0 mt-0.5"
+                      >check_circle</span
+                    >
+                    <p>
+                      <strong class="text-[#111318] dark:text-white"
+                        >Xử lý đơn hàng:</strong
+                      >
+                      Xác nhận, xử lý và giao hàng các sản phẩm khuôn gạch và
+                      dịch vụ gia công cơ khí
+                    </p>
+                  </div>
+                  <div class="flex gap-3">
+                    <span
+                      class="material-symbols-outlined text-accent-orange text-xl flex-shrink-0 mt-0.5"
+                      >check_circle</span
+                    >
+                    <p>
+                      <strong class="text-[#111318] dark:text-white"
+                        >Hỗ trợ khách hàng:</strong
+                      >
+                      Giải đáp thắc mắc, tư vấn kỹ thuật và hỗ trợ bảo trì sản
+                      phẩm
+                    </p>
+                  </div>
+                  <div class="flex gap-3">
+                    <span
+                      class="material-symbols-outlined text-accent-orange text-xl flex-shrink-0 mt-0.5"
+                      >check_circle</span
+                    >
+                    <p>
+                      <strong class="text-[#111318] dark:text-white"
+                        >Cải thiện dịch vụ:</strong
+                      >
+                      Phân tích hành vi người dùng để nâng cao chất lượng sản
+                      phẩm và dịch vụ
+                    </p>
+                  </div>
+                  <div class="flex gap-3">
+                    <span
+                      class="material-symbols-outlined text-accent-orange text-xl flex-shrink-0 mt-0.5"
+                      >check_circle</span
+                    >
+                    <p>
+                      <strong class="text-[#111318] dark:text-white"
+                        >Marketing:</strong
+                      >
+                      Gửi thông tin về sản phẩm mới, chương trình khuyến mãi
+                      (chỉ khi có sự đồng ý)
+                    </p>
+                  </div>
+                  <div class="flex gap-3">
+                    <span
+                      class="material-symbols-outlined text-accent-orange text-xl flex-shrink-0 mt-0.5"
+                      >check_circle</span
+                    >
+                    <p>
+                      <strong class="text-[#111318] dark:text-white"
+                        >Tuân thủ pháp luật:</strong
+                      >
+                      Đáp ứng các yêu cầu pháp lý và bảo vệ quyền lợi hợp pháp
+                      của công ty
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: Information Protection -->
+          <div
+            class="bg-white dark:bg-slate-800 rounded-2xl p-8 lg:p-10 mb-8 border border-slate-200 dark:border-slate-700 shadow-sm animate-on-scroll fade-in-up"
+            style="animation-delay: 0.3s"
+          >
+            <div class="flex items-start gap-4 mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-accent-orange/10 flex items-center justify-center flex-shrink-0"
+              >
+                <span
+                  class="material-symbols-outlined text-accent-orange text-2xl"
+                  >security</span
+                >
+              </div>
+              <div class="flex-1">
+                <h2 class="text-2xl font-black mb-4 dark:text-white">
+                  3. Bảo vệ thông tin
+                </h2>
+                <div class="space-y-4 text-slate-600 dark:text-slate-300">
+                  <p>
+                    Chúng tôi áp dụng các biện pháp bảo mật kỹ thuật và tổ chức
+                    để bảo vệ thông tin cá nhân của bạn:
+                  </p>
+                  <div class="grid md:grid-cols-2 gap-4">
+                    <div
+                      class="bg-slate-50 dark:bg-slate-900 p-4 rounded-lg border border-slate-200 dark:border-slate-700"
+                    >
+                      <div class="flex items-center gap-2 mb-2">
+                        <span
+                          class="material-symbols-outlined text-primary text-lg"
+                          >encrypted</span
+                        >
+                        <h4 class="font-bold text-[#111318] dark:text-white">
+                          Mã hóa dữ liệu
+                        </h4>
+                      </div>
+                      <p class="text-sm">
+                        Sử dụng SSL/TLS để mã hóa thông tin truyền tải
+                      </p>
+                    </div>
+                    <div
+                      class="bg-slate-50 dark:bg-slate-900 p-4 rounded-lg border border-slate-200 dark:border-slate-700"
+                    >
+                      <div class="flex items-center gap-2 mb-2">
+                        <span
+                          class="material-symbols-outlined text-primary text-lg"
+                          >admin_panel_settings</span
+                        >
+                        <h4 class="font-bold text-[#111318] dark:text-white">
+                          Kiểm soát truy cập
+                        </h4>
+                      </div>
+                      <p class="text-sm">
+                        Chỉ nhân viên được ủy quyền mới được truy cập dữ liệu
+                      </p>
+                    </div>
+                    <div
+                      class="bg-slate-50 dark:bg-slate-900 p-4 rounded-lg border border-slate-200 dark:border-slate-700"
+                    >
+                      <div class="flex items-center gap-2 mb-2">
+                        <span
+                          class="material-symbols-outlined text-primary text-lg"
+                          >backup</span
+                        >
+                        <h4 class="font-bold text-[#111318] dark:text-white">
+                          Sao lưu định kỳ
+                        </h4>
+                      </div>
+                      <p class="text-sm">
+                        Hệ thống sao lưu tự động để phòng tránh mất dữ liệu
+                      </p>
+                    </div>
+                    <div
+                      class="bg-slate-50 dark:bg-slate-900 p-4 rounded-lg border border-slate-200 dark:border-slate-700"
+                    >
+                      <div class="flex items-center gap-2 mb-2">
+                        <span
+                          class="material-symbols-outlined text-primary text-lg"
+                          >verified_user</span
+                        >
+                        <h4 class="font-bold text-[#111318] dark:text-white">
+                          Giám sát bảo mật
+                        </h4>
+                      </div>
+                      <p class="text-sm">
+                        Theo dõi và phát hiện các hoạt động bất thường
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 4: Information Sharing -->
+          <div
+            class="bg-white dark:bg-slate-800 rounded-2xl p-8 lg:p-10 mb-8 border border-slate-200 dark:border-slate-700 shadow-sm animate-on-scroll fade-in-up"
+            style="animation-delay: 0.4s"
+          >
+            <div class="flex items-start gap-4 mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0"
+              >
+                <span class="material-symbols-outlined text-primary text-2xl"
+                  >share</span
+                >
+              </div>
+              <div class="flex-1">
+                <h2 class="text-2xl font-black mb-4 dark:text-white">
+                  4. Chia sẻ thông tin với bên thứ ba
+                </h2>
+                <div class="space-y-4 text-slate-600 dark:text-slate-300">
+                  <p>
+                    Chúng tôi <strong>không bán hoặc cho thuê</strong> thông tin
+                    cá nhân của bạn cho bên thứ ba. Tuy nhiên, chúng tôi có thể
+                    chia sẻ thông tin trong các trường hợp sau:
+                  </p>
+                  <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li>
+                      <strong>Đối tác vận chuyển:</strong> Để giao hàng đến địa
+                      chỉ của bạn
+                    </li>
+                    <li>
+                      <strong>Nhà cung cấp dịch vụ thanh toán:</strong> Để xử lý
+                      giao dịch thanh toán an toàn
+                    </li>
+                    <li>
+                      <strong>Cơ quan pháp luật:</strong> Khi có yêu cầu hợp
+                      pháp từ cơ quan có thẩm quyền
+                    </li>
+                    <li>
+                      <strong>Bảo vệ quyền lợi:</strong> Để ngăn chặn gian lận
+                      hoặc bảo vệ quyền lợi hợp pháp của công ty
+                    </li>
+                  </ul>
+                  <div
+                    class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-4 rounded-lg mt-4"
+                  >
+                    <div class="flex gap-3">
+                      <span
+                        class="material-symbols-outlined text-primary flex-shrink-0"
+                        >info</span
+                      >
+                      <p class="text-sm">
+                        Tất cả các bên thứ ba được yêu cầu tuân thủ nghiêm ngặt
+                        các quy định về bảo mật và chỉ sử dụng thông tin cho mục
+                        đích được chỉ định.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5: User Rights -->
+          <div
+            class="bg-white dark:bg-slate-800 rounded-2xl p-8 lg:p-10 mb-8 border border-slate-200 dark:border-slate-700 shadow-sm animate-on-scroll fade-in-up"
+            style="animation-delay: 0.5s"
+          >
+            <div class="flex items-start gap-4 mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-accent-orange/10 flex items-center justify-center flex-shrink-0"
+              >
+                <span
+                  class="material-symbols-outlined text-accent-orange text-2xl"
+                  >person</span
+                >
+              </div>
+              <div class="flex-1">
+                <h2 class="text-2xl font-black mb-4 dark:text-white">
+                  5. Quyền của khách hàng
+                </h2>
+                <div class="space-y-4 text-slate-600 dark:text-slate-300">
+                  <p>
+                    Bạn có các quyền sau đối với thông tin cá nhân của mình:
+                  </p>
+                  <div class="space-y-3">
+                    <div class="flex gap-3">
+                      <span
+                        class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5"
+                        >visibility</span
+                      >
+                      <div>
+                        <h4
+                          class="font-bold text-[#111318] dark:text-white mb-1"
+                        >
+                          Quyền truy cập
+                        </h4>
+                        <p>
+                          Yêu cầu xem lại thông tin cá nhân mà chúng tôi đang
+                          lưu giữ
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex gap-3">
+                      <span
+                        class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5"
+                        >edit</span
+                      >
+                      <div>
+                        <h4
+                          class="font-bold text-[#111318] dark:text-white mb-1"
+                        >
+                          Quyền chỉnh sửa
+                        </h4>
+                        <p>
+                          Yêu cầu cập nhật hoặc sửa chữa thông tin không chính
+                          xác
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex gap-3">
+                      <span
+                        class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5"
+                        >delete</span
+                      >
+                      <div>
+                        <h4
+                          class="font-bold text-[#111318] dark:text-white mb-1"
+                        >
+                          Quyền xóa
+                        </h4>
+                        <p>
+                          Yêu cầu xóa thông tin cá nhân (trừ khi pháp luật yêu
+                          cầu lưu trữ)
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex gap-3">
+                      <span
+                        class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5"
+                        >block</span
+                      >
+                      <div>
+                        <h4
+                          class="font-bold text-[#111318] dark:text-white mb-1"
+                        >
+                          Quyền từ chối
+                        </h4>
+                        <p>
+                          Từ chối nhận email marketing hoặc chia sẻ thông tin
+                          cho mục đích quảng cáo
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex gap-3">
+                      <span
+                        class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5"
+                        >download</span
+                      >
+                      <div>
+                        <h4
+                          class="font-bold text-[#111318] dark:text-white mb-1"
+                        >
+                          Quyền di chuyển dữ liệu
+                        </h4>
+                        <p>
+                          Yêu cầu cung cấp bản sao dữ liệu cá nhân ở định dạng
+                          có thể đọc được
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 p-4 rounded-lg mt-4"
+                  >
+                    <p class="text-sm">
+                      <strong class="text-[#111318] dark:text-white"
+                        >Để thực hiện các quyền trên,</strong
+                      >
+                      vui lòng liên hệ với chúng tôi qua email
+                      <a
+                        href="mailto:Cokhi442@gmail.com"
+                        class="text-accent-orange font-semibold hover:underline"
+                        >Cokhi442@gmail.com</a
+                      >
+                      hoặc số điện thoại
+                      <a
+                        href="tel:+84359216666"
+                        class="text-accent-orange font-semibold hover:underline"
+                        >035.921.6666</a
+                      >.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 6: Cookies -->
+          <div
+            class="bg-white dark:bg-slate-800 rounded-2xl p-8 lg:p-10 mb-8 border border-slate-200 dark:border-slate-700 shadow-sm animate-on-scroll fade-in-up"
+            style="animation-delay: 0.6s"
+          >
+            <div class="flex items-start gap-4 mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0"
+              >
+                <span class="material-symbols-outlined text-primary text-2xl"
+                  >cookie</span
+                >
+              </div>
+              <div class="flex-1">
+                <h2 class="text-2xl font-black mb-4 dark:text-white">
+                  6. Cookies và công nghệ theo dõi
+                </h2>
+                <div class="space-y-4 text-slate-600 dark:text-slate-300">
+                  <p>
+                    Website của chúng tôi sử dụng cookies để cải thiện trải
+                    nghiệm người dùng. Cookies là các tệp văn bản nhỏ được lưu
+                    trữ trên thiết bị của bạn.
+                  </p>
+                  <div>
+                    <h4 class="font-bold text-[#111318] dark:text-white mb-2">
+                      Các loại cookies chúng tôi sử dụng:
+                    </h4>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                      <li>
+                        <strong>Cookies cần thiết:</strong> Để website hoạt động
+                        bình thường
+                      </li>
+                      <li>
+                        <strong>Cookies phân tích:</strong> Để hiểu cách người
+                        dùng tương tác với website
+                      </li>
+                      <li>
+                        <strong>Cookies chức năng:</strong> Để ghi nhớ tùy chọn
+                        của bạn (ngôn ngữ, chế độ tối)
+                      </li>
+                    </ul>
+                  </div>
+                  <p class="text-sm italic">
+                    Bạn có thể quản lý hoặc xóa cookies thông qua cài đặt trình
+                    duyệt. Tuy nhiên, việc vô hiệu hóa cookies có thể ảnh hưởng
+                    đến chức năng của website.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 7: Data Retention -->
+          <div
+            class="bg-white dark:bg-slate-800 rounded-2xl p-8 lg:p-10 mb-8 border border-slate-200 dark:border-slate-700 shadow-sm animate-on-scroll fade-in-up"
+            style="animation-delay: 0.7s"
+          >
+            <div class="flex items-start gap-4 mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-accent-orange/10 flex items-center justify-center flex-shrink-0"
+              >
+                <span
+                  class="material-symbols-outlined text-accent-orange text-2xl"
+                  >schedule</span
+                >
+              </div>
+              <div class="flex-1">
+                <h2 class="text-2xl font-black mb-4 dark:text-white">
+                  7. Thời gian lưu trữ thông tin
+                </h2>
+                <div class="space-y-3 text-slate-600 dark:text-slate-300">
+                  <p>
+                    Chúng tôi chỉ lưu trữ thông tin cá nhân của bạn trong khoảng
+                    thời gian cần thiết để:
+                  </p>
+                  <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li>Thực hiện các mục đích đã nêu trong chính sách này</li>
+                    <li>
+                      Tuân thủ các nghĩa vụ pháp lý (tối thiểu 10 năm cho hồ sơ
+                      kế toán)
+                    </li>
+                    <li>Giải quyết tranh chấp và thực thi thỏa thuận</li>
+                  </ul>
+                  <p>
+                    Sau khi hết thời gian lưu trữ, thông tin sẽ được xóa hoặc ẩn
+                    danh hóa một cách an toàn.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 8: Policy Updates -->
+          <div
+            class="bg-white dark:bg-slate-800 rounded-2xl p-8 lg:p-10 mb-8 border border-slate-200 dark:border-slate-700 shadow-sm animate-on-scroll fade-in-up"
+            style="animation-delay: 0.8s"
+          >
+            <div class="flex items-start gap-4 mb-6">
+              <div
+                class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0"
+              >
+                <span class="material-symbols-outlined text-primary text-2xl"
+                  >update</span
+                >
+              </div>
+              <div class="flex-1">
+                <h2 class="text-2xl font-black mb-4 dark:text-white">
+                  8. Cập nhật chính sách
+                </h2>
+                <div class="space-y-3 text-slate-600 dark:text-slate-300">
+                  <p>
+                    Chúng tôi có quyền cập nhật Chính sách Bảo mật này để phản
+                    ánh các thay đổi về quy trình, pháp luật hoặc công nghệ. Mọi
+                    thay đổi quan trọng sẽ được thông báo qua:
+                  </p>
+                  <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li>Email đến địa chỉ đã đăng ký của bạn</li>
+                    <li>Thông báo nổi bật trên website</li>
+                    <li>Cập nhật ngày "Cập nhật lần cuối" ở đầu trang này</li>
+                  </ul>
+                  <p>
+                    Việc bạn tiếp tục sử dụng dịch vụ sau khi có thay đổi đồng
+                    nghĩa với việc chấp nhận chính sách mới.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Section -->
+          <div
+            class="bg-gradient-to-br from-primary to-blue-600 rounded-2xl p-8 lg:p-10 text-white animate-on-scroll fade-in-up"
+            style="animation-delay: 0.9s"
+          >
+            <div class="flex items-start gap-4">
+              <div
+                class="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0"
+              >
+                <span class="material-symbols-outlined text-2xl"
+                  >contact_support</span
+                >
+              </div>
+              <div class="flex-1">
+                <h2 class="text-2xl font-black mb-4">
+                  Liên hệ về bảo mật thông tin
+                </h2>
+                <p class="mb-6 text-blue-100">
+                  Nếu bạn có bất kỳ câu hỏi, thắc mắc hoặc yêu cầu nào về chính
+                  sách bảo mật này, vui lòng liên hệ:
+                </p>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div class="flex items-start gap-3">
+                    <span
+                      class="material-symbols-outlined text-xl flex-shrink-0"
+                      >business</span
+                    >
+                    <div>
+                      <p class="font-semibold mb-1">
+                        CÔNG TY TNHH CƠ KHÍ XÂY DỰNG NGUYỄN CƯỜNG
+                      </p>
+                      <p class="text-sm text-blue-100">
+                        36/2/25 Nguyễn An Ninh, Khu phố Nhị Đồng 2, Phường Dĩ
+                        An, Thành phố Dĩ An, Bình Dương
+                      </p>
+                    </div>
+                  </div>
+                  <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                      <span class="material-symbols-outlined">call</span>
+                      <a
+                        href="tel:+84359216666"
+                        class="hover:underline font-semibold"
+                        >035.921.6666</a
+                      >
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <span class="material-symbols-outlined">mail</span>
+                      <a
+                        href="mailto:Cokhi442@gmail.com"
+                        class="hover:underline font-semibold"
+                        >Cokhi442@gmail.com</a
+                      >
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <span class="material-symbols-outlined">schedule</span>
+                      <span>Thứ 2 - Thứ 7: 07:30 - 17:30</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Back to Home -->
+          <div class="text-center mt-8">
+            <a
+              href="index.html"
+              class="inline-flex items-center gap-2 text-primary dark:text-blue-400 font-bold hover:gap-3 transition-all"
+            >
+              <span class="material-symbols-outlined">arrow_back</span>
+              <span>Quay lại trang chủ</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 dark:from-background-dark dark:via-slate-900 dark:to-background-dark text-white overflow-hidden"
+    >
+      <!-- Decorative Background -->
+      <div class="absolute inset-0 opacity-5">
+        <div
+          class="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-0 right-0 w-96 h-96 bg-accent-orange rounded-full blur-3xl"
+        ></div>
+      </div>
+
+      <!-- Premium CTA Banner -->
+      <div class="relative border-b border-white/10">
+        <div class="max-w-[1280px] mx-auto px-4 lg:px-10 py-12">
+          <div
+            class="flex flex-col lg:flex-row items-center justify-between gap-8"
+          >
+            <div class="flex-1 text-center lg:text-left">
+              <h3 class="text-3xl lg:text-4xl font-black mb-3">
+                Sẵn sàng bắt đầu dự án của bạn?
+              </h3>
+              <p class="text-slate-300 text-lg">
+                Liên hệ ngay để nhận tư vấn và báo giá miễn phí từ chuyên gia
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-4 justify-center lg:justify-end">
+              <a
+                href="tel:+84359216666"
+                class="group flex items-center gap-3 bg-accent-orange hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 transition-all hover:scale-105"
+              >
+                <span
+                  class="material-symbols-outlined text-2xl group-hover:rotate-12 transition-transform"
+                  >call</span
+                >
+                <span>035.921.6666</span>
+              </a>
+              <a
+                href="contact.html"
+                class="flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-xl font-bold transition-all hover:scale-105"
+              >
+                <span class="material-symbols-outlined">mail</span>
+                <span>Gửi tin nhắn</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Footer Content -->
+      <div class="relative">
+        <div class="max-w-[1280px] mx-auto px-4 lg:px-10 pt-16 pb-8">
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12"
+          >
+            <!-- Company Info -->
+            <div class="lg:col-span-2 space-y-6">
+              <div class="flex items-center gap-3">
+                <div
+                  class="flex items-center justify-center p-2 bg-white/10 rounded-xl backdrop-blur-sm"
+                >
+                  <img
+                    src="assets/images/logo/logo3D_rmbg.png"
+                    alt="Nguyễn Cường Logo"
+                    class="h-12 w-auto"
+                  />
+                </div>
+                <div>
+                  <h2
+                    class="text-white text-xl font-black tracking-tight uppercase"
+                  >
+                    Nguyễn Cường
+                  </h2>
+                  <p class="text-slate-400 text-xs uppercase tracking-wider">
+                    Cơ Khí Xây Dựng
+                  </p>
+                </div>
+              </div>
+
+              <p class="text-slate-300 leading-relaxed">
+                Đơn vị hàng đầu trong gia công cơ khí chính xác và sản xuất
+                khuôn mẫu gạch xây dựng.
+                <span class="text-accent-orange font-semibold"
+                  >Uy tín - Chất lượng - Bền vững.</span
+                >
+              </p>
+
+              <!-- Trust Badges -->
+              <div class="flex flex-wrap gap-3">
+                <div
+                  class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20"
+                >
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-sm"
+                    >verified</span
+                  >
+                  <span class="text-xs font-semibold">10+ năm kinh nghiệm</span>
+                </div>
+                <div
+                  class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20"
+                >
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-sm"
+                    >workspace_premium</span
+                  >
+                  <span class="text-xs font-semibold">500+ khách hàng</span>
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div class="flex gap-3">
+                <a
+                  class="w-11 h-11 rounded-xl bg-white/10 hover:bg-primary backdrop-blur-sm flex items-center justify-center border border-white/20 hover:border-primary transition-all hover:scale-110"
+                  href="#"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >social_leaderboard</span
+                  >
+                </a>
+                <a
+                  class="w-11 h-11 rounded-xl bg-white/10 hover:bg-primary backdrop-blur-sm flex items-center justify-center border border-white/20 hover:border-primary transition-all hover:scale-110"
+                  href="#"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >alternate_email</span
+                  >
+                </a>
+                <a
+                  class="w-11 h-11 rounded-xl bg-white/10 hover:bg-primary backdrop-blur-sm flex items-center justify-center border border-white/20 hover:border-primary transition-all hover:scale-110"
+                  href="#"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >local_post_office</span
+                  >
+                </a>
+              </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+              <h4 class="font-black mb-6 text-white flex items-center gap-2">
+                <span class="w-1 h-5 bg-accent-orange rounded-full"></span>
+                Liên kết nhanh
+              </h4>
+              <ul class="space-y-3 text-sm">
+                <li>
+                  <a
+                    class="text-slate-300 hover:text-accent-orange transition-colors flex items-center gap-2 group"
+                    href="index.html"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      >chevron_right</span
+                    >
+                    <span>Trang chủ</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="text-slate-300 hover:text-accent-orange transition-colors flex items-center gap-2 group"
+                    href="index.html#san-pham"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      >chevron_right</span
+                    >
+                    <span>Sản phẩm khuôn gạch</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="text-slate-300 hover:text-accent-orange transition-colors flex items-center gap-2 group"
+                    href="#"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      >chevron_right</span
+                    >
+                    <span>Dịch vụ gia công CNC</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="text-slate-300 hover:text-accent-orange transition-colors flex items-center gap-2 group"
+                    href="#"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      >chevron_right</span
+                    >
+                    <span>Tin tức &amp; Sự kiện</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="text-slate-300 hover:text-accent-orange transition-colors flex items-center gap-2 group"
+                    href="contact.html"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      >chevron_right</span
+                    >
+                    <span>Liên hệ</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+              <h4 class="font-black mb-6 text-white flex items-center gap-2">
+                <span class="w-1 h-5 bg-accent-orange rounded-full"></span>
+                Liên hệ
+              </h4>
+              <ul class="space-y-4 text-sm">
+                <li class="flex gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-lg flex-shrink-0"
+                    >location_on</span
+                  >
+                  <span class="text-slate-300"
+                    >36/2/25 Nguyễn An Ninh, Khu phố Nhị Đồng 2, Phường Dĩ An,
+                    Thành phố Dĩ An, Bình Dương</span
+                  >
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-lg flex-shrink-0"
+                    >call</span
+                  >
+                  <a
+                    href="tel:+84359216666"
+                    class="text-slate-300 hover:text-accent-orange transition-colors font-semibold"
+                  >
+                    035.921.6666
+                  </a>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-lg flex-shrink-0"
+                    >mail</span
+                  >
+                  <a
+                    href="mailto:Cokhi442@gmail.com"
+                    class="text-slate-300 hover:text-accent-orange transition-colors"
+                  >
+                    Cokhi442@gmail.com
+                  </a>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-lg flex-shrink-0"
+                    >schedule</span
+                  >
+                  <span class="text-slate-300"
+                    >Thứ 2 - Thứ 7: 07:30 - 17:30</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Bottom Bar -->
+          <div
+            class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+          >
+            <p class="text-xs text-slate-400">
+              © 2024
+              <span class="font-semibold text-white"
+                >CÔNG TY TNHH CƠ KHÍ XÂY DỰNG NGUYỄN CƯỜNG</span
+              >. All rights reserved.
+            </p>
+            <div class="flex gap-6 text-xs">
+              <a
+                class="text-slate-400 hover:text-accent-orange transition-colors"
+                href="terms.html"
+                >Điều khoản</a
+              >
+              <a
+                class="text-slate-400 hover:text-accent-orange transition-colors"
+                href="privacy.html"
+                >Bảo mật</a
+              >
+              <a
+                class="text-slate-400 hover:text-accent-orange transition-colors"
+                href="#"
+                >Sitemap</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        const icon = mobileMenuButton.querySelector(
+          ".material-symbols-outlined",
+        );
+        if (mobileMenu.classList.contains("hidden")) {
+          icon.textContent = "menu";
+        } else {
+          icon.textContent = "close";
+        }
+      });
+
+      // Mobile Policy Dropdown Toggle
+      const mobilePolicyToggle = document.getElementById(
+        "mobile-policy-toggle",
+      );
+      const mobilePolicyMenu = document.getElementById("mobile-policy-menu");
+
+      if (mobilePolicyToggle) {
+        mobilePolicyToggle.addEventListener("click", () => {
+          mobilePolicyMenu.classList.toggle("hidden");
+          const icon = mobilePolicyToggle.querySelector(
+            ".material-symbols-outlined",
+          );
+          if (mobilePolicyMenu.classList.contains("hidden")) {
+            icon.textContent = "expand_more";
+          } else {
+            icon.textContent = "expand_less";
+          }
+        });
+      }
+
+      // Scroll Animation Observer
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animated");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all elements with animate-on-scroll class
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

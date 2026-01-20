@@ -1,0 +1,1557 @@
+<!doctype html>
+
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Trang Chủ - Cơ Khí Nguyễn Cường</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1152d4",
+              "accent-orange": "#f97316",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+
+      /* Animation Classes */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+      }
+
+      .animate-on-scroll.animated {
+        animation-duration: 0.8s;
+        animation-fill-mode: both;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .fade-in-up.animated {
+        animation-name: fadeInUp;
+      }
+
+      .fade-in-left.animated {
+        animation-name: fadeInLeft;
+      }
+
+      .fade-in-right.animated {
+        animation-name: fadeInRight;
+      }
+
+      .scale-in.animated {
+        animation-name: scaleIn;
+      }
+
+      .feature-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(17, 82, 212, 0.1),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .feature-card:hover::before {
+        left: 100%;
+      }
+
+      .feature-icon {
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover .feature-icon {
+        transform: scale(1.2) rotate(5deg);
+        color: #1152d4;
+      }
+
+      .stat-number {
+        transition: all 0.3s ease;
+      }
+
+      .stat-card:hover .stat-number {
+        transform: scale(1.1);
+        color: #1152d4;
+      }
+
+      @keyframes slideInGradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+
+      /* Dropdown Menu */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 200px;
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 50;
+      }
+
+      .dark .dropdown-menu {
+        background: #1e293b;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-menu a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        color: #111318;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.2s;
+      }
+
+      .dark .dropdown-menu a {
+        color: #e2e8f0;
+      }
+
+      .dropdown-menu a:hover {
+        background: #f1f5f9;
+        color: #1152d4;
+      }
+
+      .dark .dropdown-menu a:hover {
+        background: #334155;
+        color: #60a5fa;
+      }
+
+      .dropdown-menu a:first-child {
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+      }
+
+      .dropdown-menu a:last-child {
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-[#111318] dark:text-white transition-colors duration-300"
+  >
+    <!-- Header / Navigation -->
+    <header
+      class="sticky top-0 z-50 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-[#f0f2f4] dark:border-slate-800"
+    >
+      <div
+        class="max-w-[1280px] mx-auto px-4 lg:px-10 h-20 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-3">
+          <div class="flex items-center justify-center">
+            <img
+              src="assets/images/logo/logo3D_rmbg.png"
+              alt="Nguyễn Cường Logo"
+              class="h-16 w-auto"
+            />
+          </div>
+          <div class="flex flex-col">
+            <h1
+              class="text-primary text-lg font-black leading-none tracking-tight uppercase"
+            >
+              Nguyễn Cường
+            </h1>
+            <span
+              class="text-[10px] font-bold text-[#616f89] dark:text-slate-400 tracking-widest uppercase"
+              >Cơ Khí Xây Dựng</span
+            >
+          </div>
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+          <a
+            class="text-sm font-bold text-primary border-b-2 border-primary py-1"
+            href="index.html"
+            >Trang chủ</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1"
+            href="#san-pham"
+            >Sản phẩm</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1"
+            href="#gioi-thieu"
+            >Giới thiệu</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1"
+            href="contact.html"
+            >Liên hệ</a
+          >
+          <div class="dropdown">
+            <button
+              class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1 flex items-center gap-1"
+            >
+              <span>Chính sách</span>
+              <span class="material-symbols-outlined text-base"
+                >expand_more</span
+              >
+            </button>
+            <div class="dropdown-menu">
+              <a href="terms.html">
+                <span class="material-symbols-outlined text-lg"
+                  >description</span
+                >
+                <span>Điều khoản sử dụng</span>
+              </a>
+              <a href="privacy.html">
+                <span class="material-symbols-outlined text-lg">shield</span>
+                <span>Chính sách bảo mật</span>
+              </a>
+            </div>
+          </div>
+        </nav>
+        <div class="flex items-center gap-4">
+          <a
+            href="tel:+84359216666"
+            class="hidden lg:flex items-center gap-2 bg-accent-orange text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow-lg shadow-orange-500/20 hover:scale-105 transition-transform"
+          >
+            <span class="material-symbols-outlined text-lg">call</span>
+            <span>035.921.6666</span>
+          </a>
+          <button
+            class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-600 dark:text-slate-300"
+            onclick="document.documentElement.classList.toggle('dark')"
+          >
+            <span class="material-symbols-outlined">dark_mode</span>
+          </button>
+          <button
+            id="mobile-menu-button"
+            class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-600 dark:text-slate-300"
+          >
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800"
+      >
+        <nav class="max-w-[1280px] mx-auto px-4 py-4 flex flex-col gap-4">
+          <a
+            class="text-sm font-bold text-primary border-l-4 border-primary pl-3 py-2"
+            href="index.html"
+            >Trang chủ</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors pl-3 py-2"
+            href="#san-pham"
+            onclick="
+              document.getElementById('mobile-menu').classList.add('hidden')
+            "
+            >Sản phẩm</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors pl-3 py-2"
+            href="#gioi-thieu"
+            onclick="
+              document.getElementById('mobile-menu').classList.add('hidden')
+            "
+            >Giới thiệu</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors pl-3 py-2"
+            href="contact.html"
+            >Liên hệ</a
+          >
+          <div class="pl-3">
+            <button
+              id="mobile-policy-toggle"
+              class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-2 flex items-center gap-2 w-full"
+            >
+              <span>Chính sách</span>
+              <span class="material-symbols-outlined text-base"
+                >expand_more</span
+              >
+            </button>
+            <div id="mobile-policy-menu" class="hidden ml-4 mt-2 space-y-2">
+              <a
+                href="terms.html"
+                class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors py-2"
+              >
+                <span class="material-symbols-outlined text-lg"
+                  >description</span
+                >
+                <span>Điều khoản sử dụng</span>
+              </a>
+              <a
+                href="privacy.html"
+                class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors py-2"
+              >
+                <span class="material-symbols-outlined text-lg">shield</span>
+                <span>Chính sách bảo mật</span>
+              </a>
+            </div>
+          </div>
+          <a
+            href="tel:+84359216666"
+            class="flex items-center gap-2 bg-accent-orange text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow-lg shadow-orange-500/20 w-full justify-center"
+          >
+            <span class="material-symbols-outlined text-lg">call</span>
+            <span>035.921.6666</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+    <main class="max-w-[1280px] mx-auto">
+      <!-- Hero Section -->
+      <section class="p-4 lg:p-10">
+        <div
+          class="relative overflow-hidden rounded-xl bg-slate-900 min-h-[560px] flex items-center"
+        >
+          <div class="absolute inset-0 z-0 opacity-60">
+            <div
+              class="w-full h-full bg-cover bg-center"
+              data-alt="High quality mechanical workshop with industrial equipment"
+              style="
+                background-image:
+                  linear-gradient(
+                    to right,
+                    rgba(16, 22, 34, 0.9),
+                    rgba(16, 22, 34, 0.2)
+                  ),
+                  url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB5ecs97r9s7SfoHEH9mTOaH4-yTE10v0-dW1JWeNp2sU8xEZvdLvFpQGpsjx3_pW-b46BygR2h0Uow6CVguJqcnQdie09fI2jM_Lic2B1NVNJk_Lpsh7iBAseitbLwxKua-smqY02WMc7XQkI6btOsDy56Puf3wC1etfeC7_wAUHdZD9Q4cX2oUhHejz1RP1IcUojGsdo15rL8Yrfp4G3bKT62pLMHfK75kNbNlzP2yncSh36UjJnqeRUTmmItb4m_EKaKoSmyo3M&quot;);
+              "
+            ></div>
+          </div>
+          <div
+            class="relative z-10 px-6 lg:px-16 max-w-3xl flex flex-col gap-6"
+          >
+            <span
+              class="bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest w-fit animate-on-scroll fade-in-up"
+              >Chuyên gia khuôn gạch</span
+            >
+            <h1
+              class="text-white text-4xl lg:text-6xl font-black leading-[1.1] tracking-tight animate-on-scroll fade-in-left"
+              style="animation-delay: 0.1s; line-height: 75px"
+            >
+              CÔNG TY TNHH CƠ KHÍ XÂY DỰNG NGUYỄN CƯỜNG
+            </h1>
+            <p
+              class="text-slate-300 text-lg leading-relaxed animate-on-scroll fade-in-left"
+              style="animation-delay: 0.2s"
+            >
+              Chuyên cung cấp các loại khuôn gạch block, gạch bê tông với độ
+              chính xác cao, công nghệ CNC hiện đại và độ bền vượt trội cho mọi
+              công trình.
+            </p>
+            <div
+              class="flex flex-wrap gap-4 mt-4 animate-on-scroll scale-in"
+              style="animation-delay: 0.3s"
+            >
+              <a
+                href="contact.html"
+                class="bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold flex items-center gap-2 transition-all hover:scale-105"
+              >
+                <span>Liên hệ báo giá</span>
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+              <a
+                href="tel:+84359216666"
+                class="bg-white/10 hover:bg-white/20 backdrop-blur text-white border border-white/30 px-8 py-4 rounded-lg font-bold transition-all hover:scale-105"
+              >
+                Tư vấn miễn phí
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Intro Section / Features -->
+      <section id="gioi-thieu" class="px-4 lg:px-10 py-16">
+        <div class="flex flex-col lg:flex-row gap-12 items-center">
+          <div class="flex-1 space-y-6">
+            <h2
+              class="text-primary font-bold tracking-widest uppercase text-sm animate-on-scroll fade-in-left"
+            >
+              Về chúng tôi
+            </h2>
+            <h3
+              class="text-3xl lg:text-4xl font-black dark:text-white animate-on-scroll fade-in-left"
+              style="animation-delay: 0.1s"
+            >
+              Giải pháp cơ khí chính xác hàng đầu cho ngành vật liệu xây dựng
+            </h3>
+            <p
+              class="text-[#616f89] dark:text-slate-400 text-lg leading-relaxed animate-on-scroll fade-in-left"
+              style="animation-delay: 0.2s"
+            >
+              Với hơn 10 năm kinh nghiệm trong lĩnh vực cơ khí xây dựng, Nguyễn
+              Cường tự hào là đối tác tin cậy của hàng trăm doanh nghiệp sản
+              xuất gạch trên toàn quốc. Chúng tôi không chỉ bán sản phẩm, chúng
+              tôi mang đến giải pháp tối ưu hóa năng suất sản xuất.
+            </p>
+            <div class="grid grid-cols-2 gap-6 pt-4">
+              <div
+                class="flex flex-col gap-2 stat-card animate-on-scroll scale-in"
+                style="animation-delay: 0.3s"
+              >
+                <span
+                  class="text-3xl font-black text-primary stat-number"
+                  data-target="10"
+                  >0</span
+                >
+                <span
+                  class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase"
+                  >Năm kinh nghiệm</span
+                >
+              </div>
+              <div
+                class="flex flex-col gap-2 stat-card animate-on-scroll scale-in"
+                style="animation-delay: 0.4s"
+              >
+                <span
+                  class="text-3xl font-black text-primary stat-number"
+                  data-target="500"
+                  >0</span
+                >
+                <span
+                  class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase"
+                  >Khách hàng tin dùng</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div
+              class="feature-card bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-on-scroll fade-in-right"
+              style="animation-delay: 0.2s"
+            >
+              <span
+                class="material-symbols-outlined text-primary text-3xl mb-4 feature-icon inline-block"
+                >history</span
+              >
+              <h4 class="font-bold text-lg mb-2">Kinh nghiệm lâu năm</h4>
+              <p class="text-sm text-slate-500 dark:text-slate-400">
+                Đội ngũ kỹ sư tay nghề cao, am hiểu sâu sắc về khuôn mẫu.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-on-scroll fade-in-right"
+              style="animation-delay: 0.3s"
+            >
+              <span
+                class="material-symbols-outlined text-primary text-3xl mb-4 feature-icon inline-block"
+                >settings_suggest</span
+              >
+              <h4 class="font-bold text-lg mb-2">Công nghệ CNC</h4>
+              <p class="text-sm text-slate-500 dark:text-slate-400">
+                Máy móc hiện đại đảm bảo độ chính xác đến từng milimet.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-on-scroll fade-in-right"
+              style="animation-delay: 0.4s"
+            >
+              <span
+                class="material-symbols-outlined text-primary text-3xl mb-4 feature-icon inline-block"
+                >verified</span
+              >
+              <h4 class="font-bold text-lg mb-2">Chất lượng bền bỉ</h4>
+              <p class="text-sm text-slate-500 dark:text-slate-400">
+                Sử dụng thép chịu lực cao cấp, tăng tuổi thọ khuôn gạch.
+              </p>
+            </div>
+            <div
+              class="feature-card bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-on-scroll fade-in-right"
+              style="animation-delay: 0.5s"
+            >
+              <span
+                class="material-symbols-outlined text-primary text-3xl mb-4 feature-icon inline-block"
+                >support_agent</span
+              >
+              <h4 class="font-bold text-lg mb-2">Hỗ trợ 24/7</h4>
+              <p class="text-sm text-slate-500 dark:text-slate-400">
+                Tư vấn kỹ thuật và bảo trì nhanh chóng, tận tâm.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Products Section -->
+      <section
+        id="san-pham"
+        class="px-4 lg:px-10 py-16 bg-slate-50 dark:bg-slate-900/50 rounded-3xl mx-4"
+      >
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2
+            class="text-primary font-bold tracking-widest uppercase text-sm mb-2 animate-on-scroll fade-in-up"
+          >
+            Danh mục sản phẩm
+          </h2>
+          <h3
+            class="text-3xl font-black dark:text-white animate-on-scroll fade-in-up"
+            style="animation-delay: 0.1s"
+          >
+            Các loại khuôn gạch tiêu biểu
+          </h3>
+        </div>
+
+        <!-- Products Grid -->
+        <div
+          id="products-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8"
+        >
+          <!-- Products will be loaded by JavaScript with animations -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center items-center gap-2 mt-8">
+          <button
+            id="prev-products-page"
+            class="px-4 py-2 rounded-lg bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white dark:disabled:hover:bg-slate-800 border border-slate-200 dark:border-slate-700"
+          >
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <div id="products-page-numbers" class="flex gap-2">
+            <!-- Page numbers will be loaded by JavaScript -->
+          </div>
+          <button
+            id="next-products-page"
+            class="px-4 py-2 rounded-lg bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white dark:disabled:hover:bg-slate-800 border border-slate-200 dark:border-slate-700"
+          >
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </section>
+      <!-- Gallery Section -->
+      <section class="px-4 lg:px-10 py-16">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2
+            class="text-primary font-bold tracking-widest uppercase text-sm mb-2 animate-on-scroll fade-in-up"
+          >
+            Thư viện ảnh
+          </h2>
+          <h3
+            class="text-3xl font-black dark:text-white animate-on-scroll fade-in-up"
+            style="animation-delay: 0.1s"
+          >
+            Hình ảnh sản xuất tại xưởng
+          </h3>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div
+          id="gallery-container"
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8"
+        >
+          <!-- Images will be loaded by JavaScript with animations -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center items-center gap-2 mt-8">
+          <button
+            id="prev-page"
+            class="px-4 py-2 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-primary hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-slate-200 dark:disabled:hover:bg-slate-700"
+          >
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <div id="page-numbers" class="flex gap-2">
+            <!-- Page numbers will be loaded by JavaScript -->
+          </div>
+          <button
+            id="next-page"
+            class="px-4 py-2 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-primary hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-slate-200 dark:disabled:hover:bg-slate-700"
+          >
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </section>
+      <!-- CTA Section -->
+      <section class="px-4 lg:px-10 py-16">
+        <div
+          class="bg-primary rounded-3xl p-8 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-8 overflow-hidden relative"
+        >
+          <div
+            class="absolute right-0 top-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"
+          ></div>
+          <div class="relative z-10 space-y-4 text-center lg:text-left">
+            <h3
+              class="text-white text-3xl lg:text-4xl font-black animate-on-scroll fade-in-right"
+            >
+              Sẵn sàng nâng tầm năng suất sản xuất của bạn?
+            </h3>
+            <p
+              class="text-blue-100 text-lg animate-on-scroll fade-in-right"
+              style="animation-delay: 0.1s"
+            >
+              Liên hệ với chúng tôi ngay để nhận tư vấn kỹ thuật và báo giá cạnh
+              tranh nhất.
+            </p>
+          </div>
+          <div
+            class="relative z-10 flex flex-col sm:flex-row gap-4 animate-on-scroll scale-in"
+            style="animation-delay: 0.2s"
+          >
+            <a
+              href="tel:+84359216666"
+              class="bg-white text-primary px-10 py-4 rounded-xl font-black hover:bg-blue-50 transition-all shadow-xl text-center hover:scale-105"
+            >
+              Gọi 035.921.6666
+            </a>
+            <a
+              href="contact.html"
+              class="bg-accent-orange text-white px-10 py-4 rounded-xl font-black hover:bg-orange-600 transition-all shadow-xl text-center hover:scale-105"
+            >
+              Gửi yêu cầu báo giá
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 dark:from-background-dark dark:via-slate-900 dark:to-background-dark text-white overflow-hidden"
+    >
+      <!-- Decorative Background -->
+      <div class="absolute inset-0 opacity-5">
+        <div
+          class="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-0 right-0 w-96 h-96 bg-accent-orange rounded-full blur-3xl"
+        ></div>
+      </div>
+
+      <!-- Premium CTA Banner -->
+      <div class="relative border-b border-white/10">
+        <div class="max-w-[1280px] mx-auto px-4 lg:px-10 py-12">
+          <div
+            class="flex flex-col lg:flex-row items-center justify-between gap-8"
+          >
+            <div class="flex-1 text-center lg:text-left">
+              <h3 class="text-3xl lg:text-4xl font-black mb-3">
+                Sẵn sàng bắt đầu dự án của bạn?
+              </h3>
+              <p class="text-slate-300 text-lg">
+                Liên hệ ngay để nhận tư vấn và báo giá miễn phí từ chuyên gia
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-4 justify-center lg:justify-end">
+              <a
+                href="tel:+84359216666"
+                class="group flex items-center gap-3 bg-accent-orange hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 transition-all hover:scale-105"
+              >
+                <span
+                  class="material-symbols-outlined text-2xl group-hover:rotate-12 transition-transform"
+                  >call</span
+                >
+                <span>035.921.6666</span>
+              </a>
+              <a
+                href="contact.html"
+                class="flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-xl font-bold transition-all hover:scale-105"
+              >
+                <span class="material-symbols-outlined">mail</span>
+                <span>Gửi tin nhắn</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Footer Content -->
+      <div class="relative">
+        <div class="max-w-[1280px] mx-auto px-4 lg:px-10 pt-16 pb-8">
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12"
+          >
+            <!-- Company Info -->
+            <div class="lg:col-span-2 space-y-6">
+              <div class="flex items-center gap-3">
+                <div
+                  class="flex items-center justify-center p-2 bg-white/10 rounded-xl backdrop-blur-sm"
+                >
+                  <img
+                    src="assets/images/logo/logo3D_rmbg.png"
+                    alt="Nguyễn Cường Logo"
+                    class="h-12 w-auto"
+                  />
+                </div>
+                <div>
+                  <h2
+                    class="text-white text-xl font-black tracking-tight uppercase"
+                  >
+                    Nguyễn Cường
+                  </h2>
+                  <p class="text-slate-400 text-xs uppercase tracking-wider">
+                    Cơ Khí Xây Dựng
+                  </p>
+                </div>
+              </div>
+
+              <p class="text-slate-300 leading-relaxed">
+                Đơn vị hàng đầu trong gia công cơ khí chính xác và sản xuất
+                khuôn mẫu gạch xây dựng.
+                <span class="text-accent-orange font-semibold"
+                  >Uy tín - Chất lượng - Bền vững.</span
+                >
+              </p>
+
+              <!-- Trust Badges -->
+              <div class="flex flex-wrap gap-3">
+                <div
+                  class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20"
+                >
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-sm"
+                    >verified</span
+                  >
+                  <span class="text-xs font-semibold">10+ năm kinh nghiệm</span>
+                </div>
+                <div
+                  class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20"
+                >
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-sm"
+                    >workspace_premium</span
+                  >
+                  <span class="text-xs font-semibold">500+ khách hàng</span>
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div class="flex gap-3">
+                <a
+                  class="w-11 h-11 rounded-xl bg-white/10 hover:bg-primary backdrop-blur-sm flex items-center justify-center border border-white/20 hover:border-primary transition-all hover:scale-110"
+                  href="#"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >social_leaderboard</span
+                  >
+                </a>
+                <a
+                  class="w-11 h-11 rounded-xl bg-white/10 hover:bg-primary backdrop-blur-sm flex items-center justify-center border border-white/20 hover:border-primary transition-all hover:scale-110"
+                  href="#"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >alternate_email</span
+                  >
+                </a>
+                <a
+                  class="w-11 h-11 rounded-xl bg-white/10 hover:bg-primary backdrop-blur-sm flex items-center justify-center border border-white/20 hover:border-primary transition-all hover:scale-110"
+                  href="#"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >local_post_office</span
+                  >
+                </a>
+              </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+              <h4 class="font-black mb-6 text-white flex items-center gap-2">
+                <span class="w-1 h-5 bg-accent-orange rounded-full"></span>
+                Liên kết nhanh
+              </h4>
+              <ul class="space-y-3 text-sm">
+                <li>
+                  <a
+                    class="text-slate-300 hover:text-accent-orange transition-colors flex items-center gap-2 group"
+                    href="index.html"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      >chevron_right</span
+                    >
+                    <span>Trang chủ</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="text-slate-300 hover:text-accent-orange transition-colors flex items-center gap-2 group"
+                    href="#san-pham"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      >chevron_right</span
+                    >
+                    <span>Sản phẩm khuôn gạch</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="text-slate-300 hover:text-accent-orange transition-colors flex items-center gap-2 group"
+                    href="#"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      >chevron_right</span
+                    >
+                    <span>Dịch vụ gia công CNC</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="text-slate-300 hover:text-accent-orange transition-colors flex items-center gap-2 group"
+                    href="#"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      >chevron_right</span
+                    >
+                    <span>Tin tức &amp; Sự kiện</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="text-slate-300 hover:text-accent-orange transition-colors flex items-center gap-2 group"
+                    href="contact.html"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      >chevron_right</span
+                    >
+                    <span>Liên hệ</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+              <h4 class="font-black mb-6 text-white flex items-center gap-2">
+                <span class="w-1 h-5 bg-accent-orange rounded-full"></span>
+                Liên hệ
+              </h4>
+              <ul class="space-y-4 text-sm">
+                <li class="flex gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-lg flex-shrink-0"
+                    >location_on</span
+                  >
+                  <span class="text-slate-300"
+                    >36/2/25 Nguyễn An Ninh, Khu phố Nhị Đồng 2, Phường Dĩ An,
+                    Thành phố Dĩ An, Bình Dương</span
+                  >
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-lg flex-shrink-0"
+                    >call</span
+                  >
+                  <a
+                    href="tel:+84359216666"
+                    class="text-slate-300 hover:text-accent-orange transition-colors font-semibold"
+                  >
+                    035.921.6666
+                  </a>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-lg flex-shrink-0"
+                    >mail</span
+                  >
+                  <a
+                    href="mailto:Cokhi442@gmail.com"
+                    class="text-slate-300 hover:text-accent-orange transition-colors"
+                  >
+                    Cokhi442@gmail.com
+                  </a>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-lg flex-shrink-0"
+                    >schedule</span
+                  >
+                  <span class="text-slate-300"
+                    >Thứ 2 - Thứ 7: 07:30 - 17:30</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Bottom Bar -->
+          <div
+            class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+          >
+            <p class="text-xs text-slate-400">
+              © 2024
+              <span class="font-semibold text-white"
+                >CÔNG TY TNHH CƠ KHÍ XÂY DỰNG NGUYỄN CƯỜNG</span
+              >. All rights reserved.
+            </p>
+            <div class="flex gap-6 text-xs">
+              <a
+                class="text-slate-400 hover:text-accent-orange transition-colors"
+                href="#"
+                >Điều khoản</a
+              >
+              <a
+                class="text-slate-400 hover:text-accent-orange transition-colors"
+                href="#"
+                >Bảo mật</a
+              >
+              <a
+                class="text-slate-400 hover:text-accent-orange transition-colors"
+                href="#"
+                >Sitemap</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        const icon = mobileMenuButton.querySelector(
+          ".material-symbols-outlined",
+        );
+        if (mobileMenu.classList.contains("hidden")) {
+          icon.textContent = "menu";
+        } else {
+          icon.textContent = "close";
+        }
+      });
+
+      // Mobile Policy Dropdown Toggle
+      const mobilePolicyToggle = document.getElementById(
+        "mobile-policy-toggle",
+      );
+      const mobilePolicyMenu = document.getElementById("mobile-policy-menu");
+
+      if (mobilePolicyToggle) {
+        mobilePolicyToggle.addEventListener("click", () => {
+          mobilePolicyMenu.classList.toggle("hidden");
+          const icon = mobilePolicyToggle.querySelector(
+            ".material-symbols-outlined",
+          );
+          if (mobilePolicyMenu.classList.contains("hidden")) {
+            icon.textContent = "expand_more";
+          } else {
+            icon.textContent = "expand_less";
+          }
+        });
+      }
+
+      // Products Data
+      const productsData = [
+        {
+          src: "assets/images/khuon/bộ tổng khuôn - khuôn ngói.jpg",
+          title: "Bộ tổng khuôn - khuôn ngói",
+          description:
+            "Bộ khuôn ngói chuyên dụng với độ chính xác cao, thiết kế tối ưu cho sản xuất hàng loạt.",
+        },
+        {
+          src: "assets/images/khuon/Khuôn cái hoa văn các loại.jpg",
+          title: "Khuôn cái hoa văn các loại",
+          description:
+            "Khuôn cái với các mẫu hoa văn đa dạng, tạo điểm nhấn thẩm mỹ cho sản phẩm.",
+        },
+        {
+          src: "assets/images/khuon/khuôn dị hình.jpg",
+          title: "Khuôn dị hình",
+          description:
+            "Khuôn dị hình chuyên dụng, đáp ứng mọi thiết kế đặc biệt theo yêu cầu.",
+        },
+        {
+          src: "assets/images/khuon/khuôn dị hình 2.jpg",
+          title: "Khuôn dị hình",
+          description:
+            "Thiết kế khuôn dị hình cao cấp với độ bền vượt trội và chất lượng hoàn thiện tốt.",
+        },
+        {
+          src: "assets/images/khuon/khuôn dị hình 3.jpg",
+          title: "Khuôn dị hình",
+          description:
+            "Khuôn dị hình đa năng, phù hợp với nhiều loại sản phẩm gạch đặc biệt.",
+        },
+        {
+          src: "assets/images/khuon/kết cấu khuôn trên  Iostatic.jpg",
+          title: "Kết cấu khuôn trên Iostatic",
+          description:
+            "Kết cấu khuôn Iostatic hiện đại, tối ưu hóa quy trình ép và tăng năng suất.",
+        },
+        {
+          src: "assets/images/khuon/kết cấu khuôn trên  Iostatic 2.jpg",
+          title: "Kết cấu khuôn trên Iostatic",
+          description:
+            "Hệ thống kết cấu khuôn Iostatic tiên tiến, đảm bảo độ chính xác tuyệt đối.",
+        },
+        {
+          src: "assets/images/khuon/tấm nam châm từ trên.png",
+          title: "Tấm nam châm từ trên",
+          description:
+            "Tấm nam châm từ chất lượng cao, giúp cố định khuôn chắc chắn và dễ tháo lắp.",
+        },
+        {
+          src: "assets/images/khuon/tổng khuôn 400x400x4u.jpg",
+          title: "Tổng khuôn 400x400x4u",
+          description:
+            "Tổng khuôn kích thước 400x400mm, 4 viên, phù hợp cho dây chuyền sản xuất công nghiệp.",
+        },
+        {
+          src: "assets/images/khuon/tổng khuôn 500x500x2u.png",
+          title: "Tổng khuôn 500x500x2u",
+          description:
+            "Tổng khuôn kích thước 500x500mm, 2 viên, thiết kế chắc chắn và bền bỉ.",
+        },
+        {
+          src: "assets/images/khuon/tổng khuôn 600x600x2u.jpg",
+          title: "Tổng khuôn 600x600x2u",
+          description:
+            "Tổng khuôn kích thước lớn 600x600mm, 2 viên, cho sản phẩm gạch kích thước đặc biệt.",
+        },
+        {
+          src: "assets/images/khuon/khuôn trên dầu.jpg",
+          title: "Khuôn trên dầu",
+          description:
+            "Khuôn trên dầu chất lượng cao, đảm bảo độ bền và hiệu suất trong quá trình sản xuất.",
+        },
+        {
+          src: "assets/images/khuon/kết cấu khuôn trên  Iostatic 3.jpg",
+          title: "Kết cấu khuôn trên Iostatic",
+          description:
+            "Kết cấu khuôn Iostatic tối ưu, giúp nâng cao hiệu quả sản xuất và giảm thiểu lỗi kỹ thuật.",
+        },
+      ];
+
+      // Products Pagination
+      let currentProductsPage = 1;
+      let productsPerPage = 6;
+
+      // Update products per page based on screen size
+      function updateProductsPerPage() {
+        const width = window.innerWidth;
+        if (width < 768) {
+          productsPerPage = 3; // Mobile: 1 column, 3 products
+        } else if (width < 1024) {
+          productsPerPage = 4; // Tablet: 2 columns, 4 products
+        } else {
+          productsPerPage = 6; // Desktop: 3 columns, 6 products
+        }
+        renderProducts();
+      }
+
+      function renderProducts() {
+        const container = document.getElementById("products-container");
+        const totalPages = Math.ceil(productsData.length / productsPerPage);
+        const startIndex = (currentProductsPage - 1) * productsPerPage;
+        const endIndex = Math.min(
+          startIndex + productsPerPage,
+          productsData.length,
+        );
+
+        // Clear container
+        container.innerHTML = "";
+
+        // Render products for current page with animations
+        for (let i = startIndex; i < endIndex; i++) {
+          const product = productsData[i];
+          const delay = (i - startIndex) * 0.1;
+          const productDiv = document.createElement("div");
+          productDiv.className =
+            "group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-700 hover:-translate-y-2 animate-on-scroll scale-in";
+          productDiv.style.animationDelay = `${delay}s`;
+          productDiv.innerHTML = `
+            <div class="aspect-square bg-slate-200 dark:bg-slate-700 overflow-hidden">
+              <img
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                src="${product.src}"
+                alt="${product.title}"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6">
+              <h4 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                ${product.title}
+              </h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 min-h-[3rem]">
+                ${product.description}
+              </p>
+              <div class="flex items-center justify-end">
+                <a
+                  href="contact.html"
+                  class="flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all group"
+                >
+                  <span>Tư vấn chi tiết</span>
+                  <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          `;
+          container.appendChild(productDiv);
+        }
+
+        // Trigger animations for new products
+        setTimeout(() => {
+          container.querySelectorAll(".animate-on-scroll").forEach((el) => {
+            observer.observe(el);
+          });
+        }, 100);
+
+        // Render pagination
+        renderProductsPagination(totalPages);
+
+        // Update button states
+        document.getElementById("prev-products-page").disabled =
+          currentProductsPage === 1;
+        document.getElementById("next-products-page").disabled =
+          currentProductsPage === totalPages;
+      }
+
+      function renderProductsPagination(totalPages) {
+        const pageNumbersContainer = document.getElementById(
+          "products-page-numbers",
+        );
+        pageNumbersContainer.innerHTML = "";
+
+        for (let i = 1; i <= totalPages; i++) {
+          const pageButton = document.createElement("button");
+          pageButton.className = `w-10 h-10 rounded-lg font-bold transition-colors ${
+            i === currentProductsPage
+              ? "bg-primary text-white shadow-lg shadow-primary/30"
+              : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary hover:text-white border border-slate-200 dark:border-slate-700"
+          }`;
+          pageButton.textContent = i;
+          pageButton.addEventListener("click", () => {
+            currentProductsPage = i;
+            renderProducts();
+            // Scroll to products section
+            document
+              .querySelector("#products-container")
+              .scrollIntoView({ behavior: "smooth", block: "center" });
+          });
+          pageNumbersContainer.appendChild(pageButton);
+        }
+      }
+
+      // Products Navigation buttons
+      document
+        .getElementById("prev-products-page")
+        .addEventListener("click", () => {
+          if (currentProductsPage > 1) {
+            currentProductsPage--;
+            renderProducts();
+            document
+              .querySelector("#products-container")
+              .scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        });
+
+      document
+        .getElementById("next-products-page")
+        .addEventListener("click", () => {
+          const totalPages = Math.ceil(productsData.length / productsPerPage);
+          if (currentProductsPage < totalPages) {
+            currentProductsPage++;
+            renderProducts();
+            document
+              .querySelector("#products-container")
+              .scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        });
+
+      // Initialize products
+      updateProductsPerPage();
+
+      // Update products on window resize
+      window.addEventListener("resize", () => {
+        updateProductsPerPage();
+      });
+
+      // Gallery Pagination
+      const galleryImages = [
+        { src: "assets/images/products/1.jpg", alt: "Sản phẩm khuôn gạch 1" },
+        { src: "assets/images/products/2.jpg", alt: "Sản phẩm khuôn gạch 2" },
+        { src: "assets/images/products/3.jpg", alt: "Sản phẩm khuôn gạch 3" },
+        { src: "assets/images/products/4.jpg", alt: "Sản phẩm khuôn gạch 4" },
+        { src: "assets/images/products/5.jpg", alt: "Sản phẩm khuôn gạch 5" },
+        { src: "assets/images/products/6.jpg", alt: "Sản phẩm khuôn gạch 6" },
+        { src: "assets/images/products/7.jpg", alt: "Sản phẩm khuôn gạch 7" },
+        { src: "assets/images/products/8.jpg", alt: "Sản phẩm khuôn gạch 8" },
+        { src: "assets/images/products/9.jpg", alt: "Sản phẩm khuôn gạch 9" },
+        { src: "assets/images/products/10.jpg", alt: "Sản phẩm khuôn gạch 10" },
+        { src: "assets/images/products/11.jpg", alt: "Sản phẩm khuôn gạch 11" },
+        { src: "assets/images/products/12.jpg", alt: "Sản phẩm khuôn gạch 12" },
+        { src: "assets/images/products/13.jpg", alt: "Sản phẩm khuôn gạch 13" },
+        { src: "assets/images/products/14.jpg", alt: "Sản phẩm khuôn gạch 14" },
+        { src: "assets/images/products/15.jpg", alt: "Sản phẩm khuôn gạch 15" },
+        { src: "assets/images/products/16.jpg", alt: "Sản phẩm khuôn gạch 16" },
+        { src: "assets/images/products/17.jpg", alt: "Sản phẩm khuôn gạch 17" },
+        { src: "assets/images/products/18.jpg", alt: "Sản phẩm khuôn gạch 18" },
+        { src: "assets/images/products/19.jpg", alt: "Sản phẩm khuôn gạch 19" },
+      ];
+
+      let currentPage = 1;
+      let imagesPerPage = 6;
+
+      // Update images per page based on screen size
+      function updateImagesPerPage() {
+        const width = window.innerWidth;
+        if (width < 768) {
+          imagesPerPage = 4; // Mobile: 2x2
+        } else if (width < 1024) {
+          imagesPerPage = 6; // Tablet: 3x2
+        } else {
+          imagesPerPage = 8; // Desktop: 4x2
+        }
+        renderGallery();
+      }
+
+      function renderGallery() {
+        const container = document.getElementById("gallery-container");
+        const totalPages = Math.ceil(galleryImages.length / imagesPerPage);
+        const startIndex = (currentPage - 1) * imagesPerPage;
+        const endIndex = Math.min(
+          startIndex + imagesPerPage,
+          galleryImages.length,
+        );
+
+        // Clear container
+        container.innerHTML = "";
+
+        // Render images for current page with animations
+        for (let i = startIndex; i < endIndex; i++) {
+          const image = galleryImages[i];
+          const imageDiv = document.createElement("div");
+          const delay = (i - startIndex) * 0.1;
+          imageDiv.className =
+            "h-64 rounded-xl bg-slate-200 dark:bg-slate-700 overflow-hidden cursor-pointer group animate-on-scroll scale-in";
+          imageDiv.style.animationDelay = `${delay}s`;
+          imageDiv.innerHTML = `
+            <img
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="${image.src}"
+              alt="${image.alt}"
+              loading="lazy"
+            />
+          `;
+          container.appendChild(imageDiv);
+        }
+
+        // Trigger animations for new images
+        setTimeout(() => {
+          container.querySelectorAll(".animate-on-scroll").forEach((el) => {
+            observer.observe(el);
+          });
+        }, 100);
+
+        // Render pagination
+        renderPagination(totalPages);
+
+        // Update button states
+        document.getElementById("prev-page").disabled = currentPage === 1;
+        document.getElementById("next-page").disabled =
+          currentPage === totalPages;
+      }
+
+      function renderPagination(totalPages) {
+        const pageNumbersContainer = document.getElementById("page-numbers");
+        pageNumbersContainer.innerHTML = "";
+
+        for (let i = 1; i <= totalPages; i++) {
+          const pageButton = document.createElement("button");
+          pageButton.className = `w-10 h-10 rounded-lg font-bold transition-colors ${
+            i === currentPage
+              ? "bg-primary text-white"
+              : "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-primary hover:text-white"
+          }`;
+          pageButton.textContent = i;
+          pageButton.addEventListener("click", () => {
+            currentPage = i;
+            renderGallery();
+            // Scroll to gallery section
+            document
+              .querySelector("#gallery-container")
+              .scrollIntoView({ behavior: "smooth", block: "center" });
+          });
+          pageNumbersContainer.appendChild(pageButton);
+        }
+      }
+
+      // Navigation buttons
+      document.getElementById("prev-page").addEventListener("click", () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderGallery();
+          document
+            .querySelector("#gallery-container")
+            .scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      });
+
+      document.getElementById("next-page").addEventListener("click", () => {
+        const totalPages = Math.ceil(galleryImages.length / imagesPerPage);
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderGallery();
+          document
+            .querySelector("#gallery-container")
+            .scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      });
+
+      // Initialize gallery
+      updateImagesPerPage();
+
+      // Update on window resize
+      window.addEventListener("resize", () => {
+        updateImagesPerPage();
+      });
+
+      // Smooth scroll for anchor links with animation reset
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (href !== "#" && href.startsWith("#")) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+              // Reset animations in target section
+              const animatedElements =
+                target.querySelectorAll(".animate-on-scroll");
+              animatedElements.forEach((el) => {
+                el.classList.remove("animated");
+                // Remove from observer and re-observe to trigger animation
+                observer.unobserve(el);
+                setTimeout(() => {
+                  observer.observe(el);
+                }, 100);
+              });
+
+              // Scroll to target
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+
+              // Close mobile menu if open
+              const mobileMenu = document.getElementById("mobile-menu");
+              if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+                mobileMenu.classList.add("hidden");
+                const icon = document
+                  .getElementById("mobile-menu-button")
+                  .querySelector(".material-symbols-outlined");
+                icon.textContent = "menu";
+              }
+            }
+          }
+        });
+      });
+
+      // Pending links notification
+      document.querySelectorAll(".pending-link").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          alert("Tính năng này đang được cập nhật. Vui lòng quay lại sau!");
+        });
+      });
+
+      // Scroll Animation Observer
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animated");
+
+            // Trigger counter animation for stat numbers
+            if (entry.target.classList.contains("stat-card")) {
+              const counter = entry.target.querySelector(".stat-number");
+              if (counter && !counter.classList.contains("counted")) {
+                animateCounter(counter);
+              }
+            }
+          }
+        });
+      }, observerOptions);
+
+      // Observe all elements with animate-on-scroll class
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Counter Animation
+      function animateCounter(element) {
+        const target = parseInt(element.getAttribute("data-target"));
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16); // 60fps
+        let current = 0;
+
+        element.classList.add("counted");
+
+        const updateCounter = () => {
+          current += increment;
+          if (current < target) {
+            element.textContent = Math.floor(current) + "+";
+            requestAnimationFrame(updateCounter);
+          } else {
+            element.textContent = target + "+";
+          }
+        };
+
+        updateCounter();
+      }
+
+      // Add subtle parallax effect to feature cards
+      document.querySelectorAll(".feature-card").forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+
+          const rotateX = (y - centerY) / 20;
+          const rotateY = (centerX - x) / 20;
+
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform =
+            "perspective(1000px) rotateX(0) rotateY(0) translateY(0)";
+        });
+      });
+    </script>
+  </body>
+</html>

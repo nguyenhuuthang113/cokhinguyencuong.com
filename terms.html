@@ -1,0 +1,1067 @@
+<!doctype html>
+
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Điều khoản sử dụng - Cơ Khí Nguyễn Cường</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1152d4",
+              "accent-orange": "#f97316",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+
+      /* Animation Classes */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+      }
+
+      .animate-on-scroll.animated {
+        animation-duration: 0.8s;
+        animation-fill-mode: both;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .fade-in-up.animated {
+        animation-name: fadeInUp;
+      }
+
+      .fade-in-left.animated {
+        animation-name: fadeInLeft;
+      }
+
+      /* Dropdown Menu */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 200px;
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 50;
+      }
+
+      .dark .dropdown-menu {
+        background: #1e293b;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-menu a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        color: #111318;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.2s;
+      }
+
+      .dark .dropdown-menu a {
+        color: #e2e8f0;
+      }
+
+      .dropdown-menu a:hover {
+        background: #f1f5f9;
+        color: #1152d4;
+      }
+
+      .dark .dropdown-menu a:hover {
+        background: #334155;
+        color: #60a5fa;
+      }
+
+      .dropdown-menu a:first-child {
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+      }
+
+      .dropdown-menu a:last-child {
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-[#111318] dark:text-white transition-colors duration-300"
+  >
+    <!-- Header / Navigation -->
+    <header
+      class="sticky top-0 z-50 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-[#f0f2f4] dark:border-slate-800"
+    >
+      <div
+        class="max-w-[1280px] mx-auto px-4 lg:px-10 h-20 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-3">
+          <div class="flex items-center justify-center">
+            <img
+              src="assets/images/logo/logo3D_rmbg.png"
+              alt="Nguyễn Cường Logo"
+              class="h-16 w-auto"
+            />
+          </div>
+          <div class="flex flex-col">
+            <h1
+              class="text-primary text-lg font-black leading-none tracking-tight uppercase"
+            >
+              Nguyễn Cường
+            </h1>
+            <span
+              class="text-[10px] font-bold text-[#616f89] dark:text-slate-400 tracking-widest uppercase"
+              >Cơ Khí Xây Dựng</span
+            >
+          </div>
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1"
+            href="index.html"
+            >Trang chủ</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1"
+            href="index.html#san-pham"
+            >Sản phẩm</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1"
+            href="index.html#gioi-thieu"
+            >Giới thiệu</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1"
+            href="contact.html"
+            >Liên hệ</a
+          >
+          <div class="dropdown">
+            <button
+              class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-1 flex items-center gap-1"
+            >
+              <span>Chính sách</span>
+              <span class="material-symbols-outlined text-base"
+                >expand_more</span
+              >
+            </button>
+            <div class="dropdown-menu">
+              <a
+                href="terms.html"
+                class="font-bold text-primary dark:text-blue-400"
+              >
+                <span class="material-symbols-outlined text-lg"
+                  >description</span
+                >
+                <span>Điều khoản sử dụng</span>
+              </a>
+              <a href="privacy.html">
+                <span class="material-symbols-outlined text-lg">shield</span>
+                <span>Chính sách bảo mật</span>
+              </a>
+            </div>
+          </div>
+        </nav>
+        <div class="flex items-center gap-4">
+          <a
+            href="tel:+84359216666"
+            class="hidden lg:flex items-center gap-2 bg-accent-orange text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow-lg shadow-orange-500/20 hover:scale-105 transition-transform"
+          >
+            <span class="material-symbols-outlined text-lg">call</span>
+            <span>035.921.6666</span>
+          </a>
+          <button
+            class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-600 dark:text-slate-300"
+            onclick="document.documentElement.classList.toggle('dark')"
+          >
+            <span class="material-symbols-outlined">dark_mode</span>
+          </button>
+          <button
+            id="mobile-menu-button"
+            class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-600 dark:text-slate-300"
+          >
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800"
+      >
+        <nav class="max-w-[1280px] mx-auto px-4 py-4 flex flex-col gap-4">
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors pl-3 py-2"
+            href="index.html"
+            >Trang chủ</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors pl-3 py-2"
+            href="index.html#san-pham"
+            onclick="
+              document.getElementById('mobile-menu').classList.add('hidden')
+            "
+            >Sản phẩm</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors pl-3 py-2"
+            href="index.html#gioi-thieu"
+            onclick="
+              document.getElementById('mobile-menu').classList.add('hidden')
+            "
+            >Giới thiệu</a
+          >
+          <a
+            class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors pl-3 py-2"
+            href="contact.html"
+            >Liên hệ</a
+          >
+          <div class="pl-3">
+            <button
+              id="mobile-policy-toggle"
+              class="text-sm font-medium text-[#111318] dark:text-slate-200 hover:text-primary transition-colors py-2 flex items-center gap-2 w-full"
+            >
+              <span>Chính sách</span>
+              <span class="material-symbols-outlined text-base"
+                >expand_more</span
+              >
+            </button>
+            <div id="mobile-policy-menu" class="hidden ml-4 mt-2 space-y-2">
+              <a
+                href="terms.html"
+                class="flex items-center gap-2 text-sm font-bold text-primary py-2"
+              >
+                <span class="material-symbols-outlined text-lg"
+                  >description</span
+                >
+                <span>Điều khoản sử dụng</span>
+              </a>
+              <a
+                href="privacy.html"
+                class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors py-2"
+              >
+                <span class="material-symbols-outlined text-lg">shield</span>
+                <span>Chính sách bảo mật</span>
+              </a>
+            </div>
+          </div>
+          <a
+            href="tel:+84359216666"
+            class="flex items-center gap-2 bg-accent-orange text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow-lg shadow-orange-500/20 w-full justify-center"
+          >
+            <span class="material-symbols-outlined text-lg">call</span>
+            <span>035.921.6666</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-[1280px] mx-auto px-4 lg:px-10 py-16">
+      <!-- Page Header -->
+      <div class="text-center mb-12 animate-on-scroll fade-in-up">
+        <div class="flex items-center justify-center gap-2 mb-4">
+          <span class="material-symbols-outlined text-primary text-4xl"
+            >gavel</span
+          >
+        </div>
+        <h1 class="text-4xl lg:text-5xl font-black mb-4 dark:text-white">
+          Điều khoản sử dụng
+        </h1>
+        <p class="text-slate-500 dark:text-slate-400 text-lg">
+          Cập nhật lần cuối: Tháng 01/2026
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="max-w-4xl mx-auto">
+        <div
+          class="bg-white dark:bg-slate-800 rounded-2xl p-8 lg:p-12 shadow-sm border border-slate-200 dark:border-slate-700 space-y-8"
+        >
+          <!-- Section 1 -->
+          <section
+            class="animate-on-scroll fade-in-up"
+            style="animation-delay: 0.1s"
+          >
+            <h2
+              class="text-2xl font-black mb-4 text-primary flex items-center gap-2"
+            >
+              <span class="w-1.5 h-8 bg-accent-orange rounded-full"></span>
+              1. Giới thiệu chung
+            </h2>
+            <div
+              class="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed"
+            >
+              <p>
+                Chào mừng quý khách đến với website của
+                <strong class="text-slate-900 dark:text-white"
+                  >CÔNG TY TNHH CƠ KHÍ XÂY DỰNG NGUYỄN CƯỜNG</strong
+                >. Khi truy cập và sử dụng website này, quý khách đã đồng ý tuân
+                thủ và chấp nhận các điều khoản và điều kiện sử dụng được nêu
+                dưới đây.
+              </p>
+              <p>
+                Chúng tôi có quyền thay đổi, chỉnh sửa, thêm hoặc lược bỏ bất kỳ
+                phần nào trong Điều khoản sử dụng này vào bất cứ lúc nào. Các
+                thay đổi có hiệu lực ngay khi được đăng tải trên website mà
+                không cần thông báo trước. Quý khách vui lòng kiểm tra thường
+                xuyên để cập nhật những thay đổi của chúng tôi.
+              </p>
+            </div>
+          </section>
+
+          <!-- Section 2 -->
+          <section
+            class="animate-on-scroll fade-in-up"
+            style="animation-delay: 0.2s"
+          >
+            <h2
+              class="text-2xl font-black mb-4 text-primary flex items-center gap-2"
+            >
+              <span class="w-1.5 h-8 bg-accent-orange rounded-full"></span>
+              2. Phạm vi sử dụng
+            </h2>
+            <div
+              class="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed"
+            >
+              <p>
+                Nội dung của website này chỉ dành cho mục đích cung cấp thông
+                tin về sản phẩm, dịch vụ cơ khí xây dựng của chúng tôi. Quý
+                khách không được phép:
+              </p>
+              <ul class="list-disc list-inside space-y-2 ml-4">
+                <li>Sử dụng website cho bất kỳ mục đích bất hợp pháp nào</li>
+                <li>Xâm phạm quyền sở hữu trí tuệ của công ty</li>
+                <li>
+                  Tải lên hoặc truyền tải virus, mã độc hại hoặc bất kỳ mã nào
+                  có tính chất phá hoại
+                </li>
+                <li>Can thiệp vào hoạt động bình thường của website</li>
+                <li>Thu thập thông tin người dùng khác mà không được phép</li>
+                <li>
+                  Sao chép, sửa đổi, phân phối nội dung mà không có sự đồng ý
+                  của chúng tôi
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Section 3 -->
+          <section
+            class="animate-on-scroll fade-in-up"
+            style="animation-delay: 0.3s"
+          >
+            <h2
+              class="text-2xl font-black mb-4 text-primary flex items-center gap-2"
+            >
+              <span class="w-1.5 h-8 bg-accent-orange rounded-full"></span>
+              3. Thông tin sản phẩm và dịch vụ
+            </h2>
+            <div
+              class="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed"
+            >
+              <p>
+                Chúng tôi cố gắng cung cấp thông tin chính xác nhất về các sản
+                phẩm khuôn gạch, thiết bị cơ khí và dịch vụ gia công. Tuy nhiên:
+              </p>
+              <ul class="list-disc list-inside space-y-2 ml-4">
+                <li>
+                  Hình ảnh sản phẩm có thể khác biệt một phần so với sản phẩm
+                  thực tế do điều kiện chụp ảnh và màn hình hiển thị
+                </li>
+                <li>
+                  Thông số kỹ thuật có thể thay đổi mà không cần thông báo trước
+                  nhằm cải tiến chất lượng
+                </li>
+                <li>
+                  Giá cả và điều kiện kinh doanh cần được xác nhận qua liên hệ
+                  trực tiếp
+                </li>
+                <li>
+                  Thời gian giao hàng và thi công sẽ được thỏa thuận cụ thể
+                  trong hợp đồng
+                </li>
+              </ul>
+              <p>
+                Mọi thông tin chi tiết về sản phẩm, báo giá chính thức và điều
+                khoản hợp tác vui lòng liên hệ trực tiếp qua hotline
+                <strong class="text-primary">035.921.6666</strong> hoặc email
+                <strong class="text-primary">Cokhi442@gmail.com</strong>.
+              </p>
+            </div>
+          </section>
+
+          <!-- Section 4 -->
+          <section
+            class="animate-on-scroll fade-in-up"
+            style="animation-delay: 0.4s"
+          >
+            <h2
+              class="text-2xl font-black mb-4 text-primary flex items-center gap-2"
+            >
+              <span class="w-1.5 h-8 bg-accent-orange rounded-full"></span>
+              4. Quyền sở hữu trí tuệ
+            </h2>
+            <div
+              class="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed"
+            >
+              <p>
+                Tất cả nội dung trên website này bao gồm văn bản, hình ảnh,
+                logo, thiết kế, bản vẽ kỹ thuật và các tài liệu khác đều thuộc
+                quyền sở hữu của CÔNG TY TNHH CƠ KHÍ XÂY DỰNG NGUYỄN CƯỜNG và
+                được bảo vệ bởi luật sở hữu trí tuệ Việt Nam.
+              </p>
+              <p>
+                Việc sao chép, phân phối, sửa đổi, hoặc sử dụng bất kỳ nội dung
+                nào từ website này cho mục đích thương mại mà không có sự đồng ý
+                bằng văn bản từ chúng tôi đều bị nghiêm cấm và có thể bị xử lý
+                theo pháp luật.
+              </p>
+            </div>
+          </section>
+
+          <!-- Section 5 -->
+          <section
+            class="animate-on-scroll fade-in-up"
+            style="animation-delay: 0.5s"
+          >
+            <h2
+              class="text-2xl font-black mb-4 text-primary flex items-center gap-2"
+            >
+              <span class="w-1.5 h-8 bg-accent-orange rounded-full"></span>
+              5. Trách nhiệm của khách hàng
+            </h2>
+            <div
+              class="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed"
+            >
+              <p>
+                Khi đặt hàng hoặc sử dụng dịch vụ của chúng tôi, quý khách có
+                trách nhiệm:
+              </p>
+              <ul class="list-disc list-inside space-y-2 ml-4">
+                <li>
+                  Cung cấp thông tin chính xác, đầy đủ về yêu cầu kỹ thuật, bản
+                  vẽ thiết kế
+                </li>
+                <li>Thanh toán đúng hạn theo thỏa thuận trong hợp đồng</li>
+                <li>
+                  Kiểm tra và nghiệm thu sản phẩm theo quy trình đã thống nhất
+                </li>
+                <li>Bảo quản và sử dụng sản phẩm đúng hướng dẫn kỹ thuật</li>
+                <li>
+                  Tuân thủ các quy định về an toàn lao động khi vận hành thiết
+                  bị
+                </li>
+                <li>
+                  Thông báo kịp thời cho chúng tôi khi phát hiện lỗi hoặc sự cố
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Section 6 -->
+          <section
+            class="animate-on-scroll fade-in-up"
+            style="animation-delay: 0.6s"
+          >
+            <h2
+              class="text-2xl font-black mb-4 text-primary flex items-center gap-2"
+            >
+              <span class="w-1.5 h-8 bg-accent-orange rounded-full"></span>
+              6. Bảo hành và hỗ trợ kỹ thuật
+            </h2>
+            <div
+              class="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed"
+            >
+              <p>Chúng tôi cam kết:</p>
+              <ul class="list-disc list-inside space-y-2 ml-4">
+                <li>
+                  Bảo hành sản phẩm theo thời gian quy định trong hợp đồng mua
+                  bán
+                </li>
+                <li>
+                  Hỗ trợ kỹ thuật trong quá trình lắp đặt và vận hành ban đầu
+                </li>
+                <li>Cung cấp dịch vụ bảo trì, sửa chữa định kỳ theo yêu cầu</li>
+                <li>
+                  Tư vấn miễn phí về vấn đề kỹ thuật liên quan đến sản phẩm đã
+                  mua
+                </li>
+              </ul>
+              <p
+                class="bg-slate-100 dark:bg-slate-700 p-4 rounded-lg border-l-4 border-accent-orange"
+              >
+                <strong>Lưu ý:</strong> Bảo hành không áp dụng cho các trường
+                hợp hư hỏng do sử dụng sai mục đích, tác động ngoại lực, thiên
+                tai hoặc can thiệp trái phép vào sản phẩm.
+              </p>
+            </div>
+          </section>
+
+          <!-- Section 7 -->
+          <section
+            class="animate-on-scroll fade-in-up"
+            style="animation-delay: 0.7s"
+          >
+            <h2
+              class="text-2xl font-black mb-4 text-primary flex items-center gap-2"
+            >
+              <span class="w-1.5 h-8 bg-accent-orange rounded-full"></span>
+              7. Giới hạn trách nhiệm
+            </h2>
+            <div
+              class="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed"
+            >
+              <p>
+                Trong phạm vi pháp luật cho phép, CÔNG TY TNHH CƠ KHÍ XÂY DỰNG
+                NGUYỄN CƯỜNG không chịu trách nhiệm đối với:
+              </p>
+              <ul class="list-disc list-inside space-y-2 ml-4">
+                <li>
+                  Các thiệt hại gián tiếp, ngẫu nhiên hoặc do hậu quả phát sinh
+                  từ việc sử dụng hoặc không thể sử dụng website
+                </li>
+                <li>
+                  Sai sót trong thông tin do lỗi kỹ thuật hoặc cập nhật chậm trễ
+                </li>
+                <li>
+                  Gián đoạn dịch vụ website do bảo trì, nâng cấp hoặc sự cố kỹ
+                  thuật
+                </li>
+                <li>
+                  Hành vi của bên thứ ba khi truy cập trái phép vào hệ thống
+                </li>
+              </ul>
+              <p>
+                Tổng trách nhiệm của chúng tôi đối với mọi khiếu nại liên quan
+                đến sản phẩm/dịch vụ sẽ không vượt quá giá trị đơn hàng mà khách
+                hàng đã thanh toán.
+              </p>
+            </div>
+          </section>
+
+          <!-- Section 8 -->
+          <section
+            class="animate-on-scroll fade-in-up"
+            style="animation-delay: 0.8s"
+          >
+            <h2
+              class="text-2xl font-black mb-4 text-primary flex items-center gap-2"
+            >
+              <span class="w-1.5 h-8 bg-accent-orange rounded-full"></span>
+              8. Giải quyết tranh chấp
+            </h2>
+            <div
+              class="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed"
+            >
+              <p>
+                Mọi tranh chấp phát sinh từ hoặc liên quan đến việc sử dụng
+                website và các giao dịch với công ty sẽ được giải quyết theo
+                trình tự sau:
+              </p>
+              <ul class="list-decimal list-inside space-y-2 ml-4">
+                <li>
+                  Thương lượng, hòa giải giữa hai bên thông qua trao đổi trực
+                  tiếp
+                </li>
+                <li>
+                  Nếu không đạt được thỏa thuận, tranh chấp sẽ được đưa ra Trọng
+                  tài Kinh tế hoặc Tòa án có thẩm quyền tại Bình Dương, Việt Nam
+                </li>
+                <li>
+                  Pháp luật Việt Nam sẽ là cơ sở để giải quyết các tranh chấp
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Section 9 -->
+          <section
+            class="animate-on-scroll fade-in-up"
+            style="animation-delay: 0.9s"
+          >
+            <h2
+              class="text-2xl font-black mb-4 text-primary flex items-center gap-2"
+            >
+              <span class="w-1.5 h-8 bg-accent-orange rounded-full"></span>
+              9. Thông tin liên hệ
+            </h2>
+            <div
+              class="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed"
+            >
+              <p>
+                Nếu quý khách có bất kỳ thắc mắc nào về Điều khoản sử dụng này,
+                vui lòng liên hệ với chúng tôi qua:
+              </p>
+              <div
+                class="bg-gradient-to-br from-primary/10 to-accent-orange/10 p-6 rounded-xl border border-primary/20 space-y-3"
+              >
+                <p class="font-bold text-slate-900 dark:text-white text-lg">
+                  CÔNG TY TNHH CƠ KHÍ XÂY DỰNG NGUYỄN CƯỜNG
+                </p>
+                <div class="space-y-2">
+                  <p class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-accent-orange"
+                      >location_on</span
+                    >
+                    <span
+                      >36/2/25 Nguyễn An Ninh, Khu phố Nhị Đồng 2, Phường Dĩ An,
+                      Thành phố Dĩ An, Bình Dương</span
+                    >
+                  </p>
+                  <p class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-accent-orange"
+                      >call</span
+                    >
+                    <strong class="text-primary">035.921.6666</strong>
+                  </p>
+                  <p class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-accent-orange"
+                      >mail</span
+                    >
+                    <strong class="text-primary">Cokhi442@gmail.com</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Footer Note -->
+          <div
+            class="pt-8 border-t border-slate-200 dark:border-slate-700 text-center"
+          >
+            <p class="text-slate-500 dark:text-slate-400 text-sm">
+              Bằng việc sử dụng website này, quý khách xác nhận rằng đã đọc,
+              hiểu và đồng ý với tất cả các điều khoản và điều kiện nêu trên.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 dark:from-background-dark dark:via-slate-900 dark:to-background-dark text-white overflow-hidden mt-16"
+    >
+      <!-- Decorative Background -->
+      <div class="absolute inset-0 opacity-5">
+        <div
+          class="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-0 right-0 w-96 h-96 bg-accent-orange rounded-full blur-3xl"
+        ></div>
+      </div>
+
+      <!-- Premium CTA Banner -->
+      <div class="relative border-b border-white/10">
+        <div class="max-w-[1280px] mx-auto px-4 lg:px-10 py-12">
+          <div
+            class="flex flex-col lg:flex-row items-center justify-between gap-8"
+          >
+            <div class="flex-1 text-center lg:text-left">
+              <h3 class="text-3xl lg:text-4xl font-black mb-3">
+                Sẵn sàng bắt đầu dự án của bạn?
+              </h3>
+              <p class="text-slate-300 text-lg">
+                Liên hệ ngay để nhận tư vấn và báo giá miễn phí từ chuyên gia
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-4 justify-center lg:justify-end">
+              <a
+                href="tel:+84359216666"
+                class="group flex items-center gap-3 bg-accent-orange hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 transition-all hover:scale-105"
+              >
+                <span
+                  class="material-symbols-outlined text-2xl group-hover:rotate-12 transition-transform"
+                  >call</span
+                >
+                <span>035.921.6666</span>
+              </a>
+              <a
+                href="contact.html"
+                class="flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-xl font-bold transition-all hover:scale-105"
+              >
+                <span class="material-symbols-outlined">mail</span>
+                <span>Gửi tin nhắn</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Footer Content -->
+      <div class="relative">
+        <div class="max-w-[1280px] mx-auto px-4 lg:px-10 pt-16 pb-8">
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12"
+          >
+            <!-- Company Info -->
+            <div class="lg:col-span-2 space-y-6">
+              <div class="flex items-center gap-3">
+                <div
+                  class="flex items-center justify-center p-2 bg-white/10 rounded-xl backdrop-blur-sm"
+                >
+                  <img
+                    src="assets/images/logo/logo3D_rmbg.png"
+                    alt="Nguyễn Cường Logo"
+                    class="h-12 w-auto"
+                  />
+                </div>
+                <div>
+                  <h2
+                    class="text-white text-xl font-black tracking-tight uppercase"
+                  >
+                    Nguyễn Cường
+                  </h2>
+                  <p class="text-slate-400 text-xs uppercase tracking-wider">
+                    Cơ Khí Xây Dựng
+                  </p>
+                </div>
+              </div>
+
+              <p class="text-slate-300 leading-relaxed">
+                Đơn vị hàng đầu trong gia công cơ khí chính xác và sản xuất
+                khuôn mẫu gạch xây dựng.
+                <span class="text-accent-orange font-semibold"
+                  >Uy tín - Chất lượng - Bền vững.</span
+                >
+              </p>
+
+              <!-- Trust Badges -->
+              <div class="flex flex-wrap gap-3">
+                <div
+                  class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20"
+                >
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-sm"
+                    >verified</span
+                  >
+                  <span class="text-xs font-semibold">10+ năm kinh nghiệm</span>
+                </div>
+                <div
+                  class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20"
+                >
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-sm"
+                    >workspace_premium</span
+                  >
+                  <span class="text-xs font-semibold">500+ khách hàng</span>
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div class="flex gap-3">
+                <a
+                  class="w-11 h-11 rounded-xl bg-white/10 hover:bg-primary backdrop-blur-sm flex items-center justify-center border border-white/20 hover:border-primary transition-all hover:scale-110"
+                  href="#"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >social_leaderboard</span
+                  >
+                </a>
+                <a
+                  class="w-11 h-11 rounded-xl bg-white/10 hover:bg-primary backdrop-blur-sm flex items-center justify-center border border-white/20 hover:border-primary transition-all hover:scale-110"
+                  href="#"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >alternate_email</span
+                  >
+                </a>
+                <a
+                  class="w-11 h-11 rounded-xl bg-white/10 hover:bg-primary backdrop-blur-sm flex items-center justify-center border border-white/20 hover:border-primary transition-all hover:scale-110"
+                  href="#"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >local_post_office</span
+                  >
+                </a>
+              </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+              <h4 class="font-black mb-6 text-white flex items-center gap-2">
+                <span class="w-1 h-5 bg-accent-orange rounded-full"></span>
+                Liên kết nhanh
+              </h4>
+              <ul class="space-y-3 text-sm">
+                <li>
+                  <a
+                    class="text-slate-300 hover:text-accent-orange transition-colors flex items-center gap-2 group"
+                    href="index.html"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      >chevron_right</span
+                    >
+                    <span>Trang chủ</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="text-slate-300 hover:text-accent-orange transition-colors flex items-center gap-2 group"
+                    href="index.html#san-pham"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      >chevron_right</span
+                    >
+                    <span>Sản phẩm khuôn gạch</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="text-slate-300 hover:text-accent-orange transition-colors flex items-center gap-2 group"
+                    href="#"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      >chevron_right</span
+                    >
+                    <span>Dịch vụ gia công CNC</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="text-slate-300 hover:text-accent-orange transition-colors flex items-center gap-2 group"
+                    href="#"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      >chevron_right</span
+                    >
+                    <span>Tin tức &amp; Sự kiện</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="text-slate-300 hover:text-accent-orange transition-colors flex items-center gap-2 group"
+                    href="contact.html"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                      >chevron_right</span
+                    >
+                    <span>Liên hệ</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+              <h4 class="font-black mb-6 text-white flex items-center gap-2">
+                <span class="w-1 h-5 bg-accent-orange rounded-full"></span>
+                Liên hệ
+              </h4>
+              <ul class="space-y-4 text-sm">
+                <li class="flex gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-lg flex-shrink-0"
+                    >location_on</span
+                  >
+                  <span class="text-slate-300"
+                    >36/2/25 Nguyễn An Ninh, Khu phố Nhị Đồng 2, Phường Dĩ An,
+                    Thành phố Dĩ An, Bình Dương</span
+                  >
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-lg flex-shrink-0"
+                    >call</span
+                  >
+                  <a
+                    href="tel:+84359216666"
+                    class="text-slate-300 hover:text-accent-orange transition-colors font-semibold"
+                  >
+                    035.921.6666
+                  </a>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-lg flex-shrink-0"
+                    >mail</span
+                  >
+                  <a
+                    href="mailto:Cokhi442@gmail.com"
+                    class="text-slate-300 hover:text-accent-orange transition-colors"
+                  >
+                    Cokhi442@gmail.com
+                  </a>
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="material-symbols-outlined text-accent-orange text-lg flex-shrink-0"
+                    >schedule</span
+                  >
+                  <span class="text-slate-300"
+                    >Thứ 2 - Thứ 7: 07:30 - 17:30</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Bottom Bar -->
+          <div
+            class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+          >
+            <p class="text-xs text-slate-400">
+              © 2024
+              <span class="font-semibold text-white"
+                >CÔNG TY TNHH CƠ KHÍ XÂY DỰNG NGUYỄN CƯỜNG</span
+              >. All rights reserved.
+            </p>
+            <div class="flex gap-6 text-xs">
+              <a
+                class="text-slate-400 hover:text-accent-orange transition-colors"
+                href="terms.html"
+                >Điều khoản</a
+              >
+              <a
+                class="text-slate-400 hover:text-accent-orange transition-colors"
+                href="privacy.html"
+                >Bảo mật</a
+              >
+              <a
+                class="text-slate-400 hover:text-accent-orange transition-colors"
+                href="#"
+                >Sitemap</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        const icon = mobileMenuButton.querySelector(
+          ".material-symbols-outlined",
+        );
+        if (mobileMenu.classList.contains("hidden")) {
+          icon.textContent = "menu";
+        } else {
+          icon.textContent = "close";
+        }
+      });
+
+      // Mobile Policy Dropdown Toggle
+      const mobilePolicyToggle = document.getElementById(
+        "mobile-policy-toggle",
+      );
+      const mobilePolicyMenu = document.getElementById("mobile-policy-menu");
+
+      if (mobilePolicyToggle) {
+        mobilePolicyToggle.addEventListener("click", () => {
+          mobilePolicyMenu.classList.toggle("hidden");
+          const icon = mobilePolicyToggle.querySelector(
+            ".material-symbols-outlined",
+          );
+          if (mobilePolicyMenu.classList.contains("hidden")) {
+            icon.textContent = "expand_more";
+          } else {
+            icon.textContent = "expand_less";
+          }
+        });
+      }
+
+      // Scroll Animation Observer
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animated");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all elements with animate-on-scroll class
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>
