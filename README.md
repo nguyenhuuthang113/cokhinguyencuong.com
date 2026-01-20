@@ -124,6 +124,7 @@ cokhinguyencuongcom/
 ├── terms.html              # Điều khoản sử dụng
 ├── privacy.html            # Chính sách bảo mật
 ├── khach-hang.html         # Danh sách khách hàng
+├── 404.html                # Trang lỗi 404
 ├── README.md               # File này
 │
 └── assets/
@@ -211,6 +212,13 @@ cokhinguyencuongcom/
 - GDPR compliant
 - Quyền của người dùng
 - Cookie policy
+
+### ⚠️ Lỗi 404 (`404.html`)
+
+- Trang lỗi chuyên nghiệp
+- Animation mượt mà
+- Quick links hữu ích
+- Dark mode support
 
 ---
 
